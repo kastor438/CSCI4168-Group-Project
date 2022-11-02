@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!GameManager.Instance || !GameManager.Instance.player || !GameManager.Instance.playerInput)
             return;
-
+        
         movementInput = playerInput.actions["Movement"].ReadValue<Vector2>();
     }
 
