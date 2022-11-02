@@ -17,8 +17,9 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
+        
         if (!GameManager.Instance || !GameManager.Instance.player || !GameManager.Instance.playerInput)
             return;
         

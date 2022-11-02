@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[CreateAssetMenu(fileName = "NewEquipment", menuName = "Item/Equipment")]
 public class Equipment : Item
 {
-
+    public float durability;
+    public GameObject equipmentPrefab;
 }
-
-public enum EquipmentType { Armour }
