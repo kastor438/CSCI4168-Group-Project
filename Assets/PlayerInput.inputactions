@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause",
+                    "name": "PauseGame",
                     "type": "Button",
                     "id": "795dcfd0-f9d2-4c34-80a6-76e565d440ee",
                     "expectedControlType": "Button",
@@ -116,7 +116,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause",
+                    "action": "PauseGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -138,7 +138,7 @@
             "id": "a5e2e561-0c38-46d5-886b-01f0b05e4d94",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "UnpauseGame",
                     "type": "Button",
                     "id": "6977b78d-9f1e-4387-9103-e055aa827574",
                     "expectedControlType": "Button",
@@ -151,11 +151,11 @@
                 {
                     "name": "",
                     "id": "32d5bab5-6fda-4859-912e-c44cec2072b5",
-                    "path": "",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "UnpauseGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
