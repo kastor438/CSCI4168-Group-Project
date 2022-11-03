@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static MenuManager Instance { get; private set; }
+    public MenuUserInterface menuUserInterface;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        if(Instance != null)
+        {
+            Destroy(gameObject);
+        }
+        Instance = this;
+        DontDestroyOnLoad(Instance);
     }
 }
