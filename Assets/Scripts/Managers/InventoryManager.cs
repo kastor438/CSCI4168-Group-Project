@@ -6,6 +6,7 @@ public class InventoryManager : MonoBehaviour
 {
     private List<InventorySlot> inventorySlots;
     public bool movingItem;
+    public InventorySlot pickedUpSlot;
 
     public void Start()
     {

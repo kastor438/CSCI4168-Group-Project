@@ -61,18 +61,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerDownHa
         }
     }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (!GameManager.Instance || !GameManager.Instance.playerInput || item == null ||
-            !GameManager.Instance.playerInput.currentActionMap.name.Equals("InventoryOpen"))
-            return;
-
-        if (GameManager.Instance.playerInput.actions["Ctrl"].IsPressed() && GameManager.Instance.playerInput.actions["LeftClick"].WasPerformedThisFrame())
-        {
-            UseItem();
-        }
-    }
-
     public void UseItem()
     {
         if(item != null)
@@ -108,21 +96,90 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerDownHa
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        GameManager.Instance.inventoryManager.movingItem = true;
-        Debug.Log("Down: " + eventData.pointerCurrentRaycast.gameObject.transform.parent.name);
+        if (GameManager.Instance.playerInput.actions["LeftClick"].WasPerformedThisFrame())
+        {
+            GameManager.Instance.inventoryManager.movingItem = true;
+            GameManager.Instance.inventoryManager.pickedUpSlot = this;
+        }
+        else if (GameManager.Instance.playerInput.actions["RightClick"].WasPerformedThisFrame() &&
+            GameManager.Instance.inventoryManager.movingItem &&
+            GameManager.Instance.inventoryManager.pickedUpSlot != null &&
+            this != GameManager.Instance.inventoryManager.pickedUpSlot && (item == null ||
+            (item == GameManager.Instance.inventoryManager.pickedUpSlot.item && itemQuantity < item.stackableAmount)))
+        {
+            item = GameManager.Instance.inventoryManager.pickedUpSlot.item;
+            itemQuantity++;
+            GameManager.Instance.inventoryManager.pickedUpSlot.itemQuantity--;
+
+            if (GameManager.Instance.inventoryManager.pickedUpSlot.itemQuantity <= 0)
+            {
+                GameManager.Instance.inventoryManager.pickedUpSlot.item = null;
+                GameManager.Instance.inventoryManager.pickedUpSlot.itemQuantity = 0;
+
+                GameManager.Instance.inventoryManager.pickedUpSlot.DisplayItemInfo();
+
+                GameManager.Instance.inventoryManager.movingItem = false;
+                GameManager.Instance.inventoryManager.pickedUpSlot = null;
+            }
+            else
+            {
+                GameManager.Instance.inventoryManager.pickedUpSlot.DisplayItemInfo();
+            }
+            DisplayItemInfo();
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("Up: " + eventData.pointerCurrentRaycast.gameObject.transform.parent.name);
-        if (GameManager.Instance.inventoryManager.movingItem &&
+        if (GameManager.Instance.playerInput.actions["LeftClick"].WasPerformedThisFrame() &&
+            GameManager.Instance.inventoryManager.movingItem &&
             eventData.pointerCurrentRaycast.gameObject &&
             eventData.pointerCurrentRaycast.gameObject.transform.parent &&
-            eventData.pointerCurrentRaycast.gameObject.transform.parent.TryGetComponent<InventorySlot>(out InventorySlot invSlot) &&
-            this != invSlot)
+            eventData.pointerCurrentRaycast.gameObject.transform.parent.TryGetComponent(out InventorySlot invSlot))
         {
-            GameManager.Instance.inventoryManager.SwitchSlots(this, invSlot);
+            if (invSlot != GameManager.Instance.inventoryManager.pickedUpSlot)
+            {
+                if (GameManager.Instance.inventoryManager.pickedUpSlot.item == invSlot.item)
+                {
+                    int amountToMove = Mathf.Min(GameManager.Instance.inventoryManager.pickedUpSlot.itemQuantity, item.stackableAmount - invSlot.itemQuantity);
+                    invSlot.itemQuantity += amountToMove;
+                    GameManager.Instance.inventoryManager.pickedUpSlot.itemQuantity -= amountToMove;
+                    if (GameManager.Instance.inventoryManager.pickedUpSlot.itemQuantity <= 0)
+                    {
+                        GameManager.Instance.inventoryManager.pickedUpSlot.item = null;
+                        GameManager.Instance.inventoryManager.pickedUpSlot.itemQuantity = 0;
+                    }
+                }
+                else
+                {
+                    GameManager.Instance.inventoryManager.SwitchSlots(GameManager.Instance.inventoryManager.pickedUpSlot, invSlot);
+                }
+                GameManager.Instance.inventoryManager.pickedUpSlot.DisplayItemInfo();
+                invSlot.DisplayItemInfo();
+            }
+            
+            GameManager.Instance.inventoryManager.movingItem = false;
+            GameManager.Instance.inventoryManager.pickedUpSlot = null;
         }
-        GameManager.Instance.inventoryManager.movingItem = false;
+        if (GameManager.Instance.playerInput.actions["LeftClick"].WasPerformedThisFrame())
+        {
+            
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (!GameManager.Instance || !GameManager.Instance.playerInput || item == null ||
+            !GameManager.Instance.playerInput.currentActionMap.name.Equals("InventoryOpen"))
+            return;
+
+        if (GameManager.Instance.playerInput.actions["Ctrl"].IsPressed() && GameManager.Instance.playerInput.actions["RightClick"].WasPerformedThisFrame())
+        {
+            UseItem();
+        }
+        else if (GameManager.Instance.playerInput.actions["RightClick"].WasPerformedThisFrame() && item.stackable)
+        {
+
+        }
     }
 }
