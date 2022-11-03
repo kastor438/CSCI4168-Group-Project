@@ -8,6 +8,7 @@ public class PauseMenuCanvas : MonoBehaviour
     public void ResumeGameOnClick()
     {
         Time.timeScale = 1;
+        GameManager.Instance.playerInput.SwitchCurrentActionMap("InGamePlayer");
         gameObject.SetActive(false);
     }
 

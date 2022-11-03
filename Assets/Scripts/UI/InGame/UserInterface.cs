@@ -32,7 +32,7 @@ public class UserInterface : MonoBehaviour
     public void OpenPauseMenu()
     {
         Time.timeScale = 0;
-        GameManager.Instance.playerInput.SwitchCurrentActionMap("PasuedGame");
+        GameManager.Instance.playerInput.SwitchCurrentActionMap("PausedGame");
         pauseMenuCanvas.gameObject.SetActive(true);
     }
 

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public PlayerInput playerInput { get; private set; }
+    public CharacterClass characterClass;
     public UserInterface userInterface;
     public GameObject player;
 

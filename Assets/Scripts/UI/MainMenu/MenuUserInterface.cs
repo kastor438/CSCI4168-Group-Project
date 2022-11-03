@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class MenuUserInterface : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public MainMenuCanvas mainMenuCanvas;
+    public CharacterSelectionCanvas characterSelectionCanvas;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        mainMenuCanvas.gameObject.SetActive(true);
+        characterSelectionCanvas.gameObject.SetActive(false);
     }
 }
