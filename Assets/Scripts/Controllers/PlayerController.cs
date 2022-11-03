@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance || !GameManager.Instance.player || !GameManager.Instance.playerInput)
+        if (!GameManager.Instance || !GameManager.Instance.player || !GameManager.Instance.playerInput || 
+            !GameManager.Instance.playerInput.currentActionMap.name.Equals("InGamePlayer"))
             return;
 
         movementInput = playerInput.actions["Movement"].ReadValue<Vector2>();
