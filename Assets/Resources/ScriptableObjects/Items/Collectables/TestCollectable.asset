@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 718235083d1141f43baa95cfb585b7db, type: 3}
-  m_Name: TestConsumable
+  m_Script: {fileID: 11500000, guid: 9483659b0228101448b918a749b718c4, type: 3}
+  m_Name: TestCollectable
   m_EditorClassIdentifier: 
-  itemName: Test Consumable
-  inventorySprite: {fileID: 21300000, guid: 251925328a35b4b1f86bc7bfc46ba9a3, type: 3}
+  itemName: test Collectable
+  inventorySprite: {fileID: 21300000, guid: d1c1523651c71449cb32c2c7933acf8c, type: 3}
   stackable: 1
-  stackableAmount: 3
-  itemType: 1
-  consumableType: 0
+  stackableAmount: 15
+  itemType: 2
