@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: TestArmour
   m_EditorClassIdentifier: 
   itemName: Test Armour
-  itemSprite: {fileID: 0}
-  durability: 0
+  inventorySprite: {fileID: 21300000, guid: 2eb82ac66de274383af71b2eb2c75da0, type: 3}
+  stackable: 0
+  stackableAmount: 0
+  itemType: 0
+  durability: 55
   equipmentPrefab: {fileID: 0}
-  defense: 0
-  armourType: 0
+  defense: 12
+  armourType: 1

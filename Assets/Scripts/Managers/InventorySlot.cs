@@ -5,8 +5,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IPointerUpHandler
+public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IPointerMoveHandler
 {
+    private bool movingItem;
+
     public Item item;
     public int itemQuantity;
 
@@ -14,17 +16,31 @@ public class InventorySlot : MonoBehaviour, IPointerUpHandler
     public TextMeshProUGUI quantityText;
     public Button itemButton;
 
-    public void AddItem(Item item)
+    public void SlotSetupStart()
     {
-        this.item = item;
-        itemQuantity++;
-        DisplayItemInfo();
+        item = null;
+        itemQuantity = 0;
+        itemImage.sprite = null;
+        itemImage.color = Color.clear;
+        quantityText.text = "";
+        itemButton.interactable = false;
     }
 
     public void AddItem(Item item, int addedQuantity)
     {
-        this.item = item;
+        if (this.item == null)
+        {
+            this.item = item;
+        }
         itemQuantity += addedQuantity;
+        DisplayItemInfo();
+    }
+
+    public void SwapItem(Item item, int quantity)
+    {
+        this.item = item;
+        itemQuantity = quantity;
+        DisplayItemInfo();
     }
 
     public void DisplayItemInfo()
@@ -32,27 +48,28 @@ public class InventorySlot : MonoBehaviour, IPointerUpHandler
         if (item)
         {
             itemImage.sprite = item.inventorySprite;
-            quantityText.text = itemQuantity.ToString();
+            itemImage.color = Color.white;
+            quantityText.text = item.stackable ? itemQuantity.ToString() : "";
             itemButton.interactable = true;
         }
         else
         {
             itemImage.sprite = null;
+            itemImage.color = Color.clear;
             quantityText.text = "";
             itemButton.interactable = false;
         }
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log(eventData.selectedObject.gameObject.name);
-        if (!GameManager.Instance || !GameManager.Instance.playerInput ||
-            !GameManager.Instance.playerInput.currentActionMap.name.Equals("InGamePlayer"))
+        if (!GameManager.Instance || !GameManager.Instance.playerInput || item == null ||
+            !GameManager.Instance.playerInput.currentActionMap.name.Equals("InventoryOpen"))
             return;
 
-        if(GameManager.Instance.playerInput.actions["Ctrl"].IsPressed() && GameManager.Instance.playerInput.actions["LeftClick"].WasPerformedThisFrame())
+        if (GameManager.Instance.playerInput.actions["Ctrl"].IsPressed() && GameManager.Instance.playerInput.actions["LeftClick"].WasPerformedThisFrame())
         {
-            Debug.Log($"Attempting Use of item.");
+            UseItem();
         }
     }
 
@@ -60,10 +77,52 @@ public class InventorySlot : MonoBehaviour, IPointerUpHandler
     {
         if(item != null)
         {
-            if(item.GetType() == typeof(Equipment))
+            if(item.itemType == ItemType.Equipment)
             {
-
+                GameManager.Instance.equipmentManager.EquipItem((Equipment)item);
+                item = null;
+                itemQuantity = 0;
+                DisplayItemInfo();
+            }
+            else if(item.itemType == ItemType.Consumable)
+            {
+                
+                itemQuantity--;
+                if (itemQuantity <= 0)
+                {
+                    item = null;
+                }
+                DisplayItemInfo();
             }
         }
+    }
+
+    public void OnPointerMove(PointerEventData eventData)
+    {
+        /*if (GameManager.Instance.inventoryManager.movingItem)
+        {
+            GameManager.Instance.userInterface.inventoryCanvas.DisplayDragItemPopup();
+        }*/
+        
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        GameManager.Instance.inventoryManager.movingItem = true;
+        Debug.Log("Down: " + eventData.pointerCurrentRaycast.gameObject.transform.parent.name);
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        Debug.Log("Up: " + eventData.pointerCurrentRaycast.gameObject.transform.parent.name);
+        if (GameManager.Instance.inventoryManager.movingItem &&
+            eventData.pointerCurrentRaycast.gameObject &&
+            eventData.pointerCurrentRaycast.gameObject.transform.parent &&
+            eventData.pointerCurrentRaycast.gameObject.transform.parent.TryGetComponent<InventorySlot>(out InventorySlot invSlot) &&
+            this != invSlot)
+        {
+            GameManager.Instance.inventoryManager.SwitchSlots(this, invSlot);
+        }
+        GameManager.Instance.inventoryManager.movingItem = false;
     }
 }
