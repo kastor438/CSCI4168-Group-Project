@@ -18,4 +18,9 @@ public class CharacterSlot : MonoBehaviour
     {
         characterText.text = $"Name: {characterClass.characterName}\nHealth: {characterClass.maxHealth}\nSpeed: {characterClass.characterSpeed}";
     }
+
+    public void ChooseCharacter()
+    {
+        MenuManager.Instance.StartGame(characterClass);
+    }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class CharacterStats : MonoBehaviour
 {
-    public int maxHealth { get; private set; }
-    public int currHealth { get; private set; }
+    public int maxHealth { get; internal set; }
+    public int currHealth { get; internal set; }
 
     public void Start()
     {

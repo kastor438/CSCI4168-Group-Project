@@ -8,12 +8,14 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playerInput;
     private Rigidbody2D RB2D;
     private Vector2 movementInput;
-    private float characterSpeed;
+    public float characterSpeed;
     
     void Start()
     {
-        characterSpeed = (GameManager.Instance && GameManager.Instance.characterClass && GameManager.Instance.characterClass.characterSpeed > 0) ? 
-            GameManager.Instance.characterClass.characterSpeed : 4;
+        if(characterSpeed == 0)
+        {
+            characterSpeed = 4;
+        }
 
         playerInput = GameManager.Instance.playerInput;
         RB2D = GetComponent<Rigidbody2D>();
