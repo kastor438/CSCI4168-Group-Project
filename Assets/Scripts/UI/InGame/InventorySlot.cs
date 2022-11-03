@@ -43,6 +43,13 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerDownHa
         DisplayItemInfo();
     }
 
+    public void RemoveItem()
+    {
+        item = null;
+        itemQuantity = 0;
+        DisplayItemInfo();
+    }
+
     public void DisplayItemInfo()
     {
         if (item)
@@ -67,10 +74,9 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerDownHa
         {
             if(item.itemType == ItemType.Equipment)
             {
-                GameManager.Instance.equipmentManager.EquipItem((Equipment)item);
-                item = null;
-                itemQuantity = 0;
-                DisplayItemInfo();
+                Equipment equipment = (Equipment)item;
+                RemoveItem();
+                GameManager.Instance.equipmentManager.EquipItem(equipment);
             }
             else if(item.itemType == ItemType.Consumable)
             {
@@ -142,12 +148,19 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerDownHa
                 if (GameManager.Instance.inventoryManager.pickedUpSlot.item == invSlot.item)
                 {
                     int amountToMove = Mathf.Min(GameManager.Instance.inventoryManager.pickedUpSlot.itemQuantity, item.stackableAmount - invSlot.itemQuantity);
-                    invSlot.itemQuantity += amountToMove;
-                    GameManager.Instance.inventoryManager.pickedUpSlot.itemQuantity -= amountToMove;
-                    if (GameManager.Instance.inventoryManager.pickedUpSlot.itemQuantity <= 0)
+                    if (amountToMove > 0)
                     {
-                        GameManager.Instance.inventoryManager.pickedUpSlot.item = null;
-                        GameManager.Instance.inventoryManager.pickedUpSlot.itemQuantity = 0;
+                        invSlot.itemQuantity += amountToMove;
+                        GameManager.Instance.inventoryManager.pickedUpSlot.itemQuantity -= amountToMove;
+                        if (GameManager.Instance.inventoryManager.pickedUpSlot.itemQuantity <= 0)
+                        {
+                            GameManager.Instance.inventoryManager.pickedUpSlot.item = null;
+                            GameManager.Instance.inventoryManager.pickedUpSlot.itemQuantity = 0;
+                        }
+                    }
+                    else
+                    {
+                        GameManager.Instance.inventoryManager.SwitchSlots(GameManager.Instance.inventoryManager.pickedUpSlot, invSlot);
                     }
                 }
                 else
@@ -176,10 +189,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerDownHa
         if (GameManager.Instance.playerInput.actions["Ctrl"].IsPressed() && GameManager.Instance.playerInput.actions["RightClick"].WasPerformedThisFrame())
         {
             UseItem();
-        }
-        else if (GameManager.Instance.playerInput.actions["RightClick"].WasPerformedThisFrame() && item.stackable)
-        {
-
         }
     }
 }

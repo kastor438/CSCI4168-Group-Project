@@ -26,7 +26,11 @@ public class PlayerController : MonoBehaviour
     {
         if (!GameManager.Instance || !GameManager.Instance.player || !GameManager.Instance.playerInput || 
             !GameManager.Instance.playerInput.currentActionMap.name.Equals("InGamePlayer"))
+        {
+            movementInput = Vector3.zero;
             return;
+        }
+            
 
         movementInput = playerInput.actions["Movement"].ReadValue<Vector2>();
     }

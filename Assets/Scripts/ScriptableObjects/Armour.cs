@@ -5,7 +5,4 @@ using System.Collections;
 public class Armour : Equipment
 {
     public float defense;
-    public ArmourType armourType;
 }
-
-public enum ArmourType { Headgear, Torso, Legs, Boots }

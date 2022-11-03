@@ -92,6 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d464827d33a5d469a85765f194574f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingItem: 0
+  pickedUpSlot: {fileID: 0}
 --- !u!114 &5967629325134884907
 MonoBehaviour:
   m_ObjectHideFlags: 0

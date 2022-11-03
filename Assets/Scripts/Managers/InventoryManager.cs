@@ -5,8 +5,8 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     private List<InventorySlot> inventorySlots;
-    public bool movingItem;
-    public InventorySlot pickedUpSlot;
+    internal bool movingItem;
+    internal InventorySlot pickedUpSlot;
 
     public void Start()
     {
