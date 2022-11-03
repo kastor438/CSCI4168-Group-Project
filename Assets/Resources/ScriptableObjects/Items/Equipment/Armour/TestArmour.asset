@@ -19,5 +19,5 @@ MonoBehaviour:
   itemType: 0
   durability: 55
   equipmentPrefab: {fileID: 0}
+  equipmentType: 2
   defense: 12
-  armourType: 1
