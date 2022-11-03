@@ -521,6 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6f02c7af6682047ae34942d7fb3635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterSpeed: 0
 --- !u!70 &1605616704
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -590,6 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29d303438d6c64f829fec98762db27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterName: 
 --- !u!1 &1636376731
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +602,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1636376734}
   - component: {fileID: 1636376733}
-  - component: {fileID: 1636376732}
+  - component: {fileID: 1636376735}
   m_Layer: 0
   m_Name: gem-1
   m_TagString: Interactable
@@ -608,19 +610,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1636376732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636376731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58a38f32bb8bb7c458e7450ef0969c6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactableRadius: 2
 --- !u!212 &1636376733
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -688,6 +677,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1636376735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636376731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a9480fe0de797042ac199e01036d45a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactableRadius: 2
 --- !u!114 &1933021609 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5222172097481774470, guid: 4ab3f417d703997448f431761fb9f65b, type: 3}
