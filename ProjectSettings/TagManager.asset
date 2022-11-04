@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bullet
+  - PlayerBody
+  - EnemyBody
+  - Interactable
+  - PlayerWeapon
+  - EnemyWeapon
+  - Enemy
   layers:
   - Default
   - TransparentFX

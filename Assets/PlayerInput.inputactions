@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause",
+                    "name": "PauseGame",
                     "type": "Button",
                     "id": "795dcfd0-f9d2-4c34-80a6-76e565d440ee",
                     "expectedControlType": "Button",
@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Inventory",
+                    "name": "OpenInventory",
                     "type": "Button",
                     "id": "4b24a943-c7c2-4874-b69e-ac67ca757447",
                     "expectedControlType": "Button",
@@ -116,7 +116,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause",
+                    "action": "PauseGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -127,7 +127,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Inventory",
+                    "action": "OpenInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -138,7 +138,7 @@
             "id": "a5e2e561-0c38-46d5-886b-01f0b05e4d94",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "UnpauseGame",
                     "type": "Button",
                     "id": "6977b78d-9f1e-4387-9103-e055aa827574",
                     "expectedControlType": "Button",
@@ -151,11 +151,11 @@
                 {
                     "name": "",
                     "id": "32d5bab5-6fda-4859-912e-c44cec2072b5",
-                    "path": "",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "UnpauseGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -166,7 +166,132 @@
             "id": "05a976b9-3b6d-412a-b905-a2e146a807c8",
             "actions": [],
             "bindings": []
+        },
+        {
+            "name": "InventoryOpen",
+            "id": "f5d72044-37ac-4a18-ab31-12f02fa3f73f",
+            "actions": [
+                {
+                    "name": "CloseInventory",
+                    "type": "Button",
+                    "id": "e148092a-9453-473f-9fec-97f13313b8fe",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LeftClick",
+                    "type": "PassThrough",
+                    "id": "3af39c6b-e1ba-41d7-881d-1b5afa2e14a4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightClick",
+                    "type": "PassThrough",
+                    "id": "961c207b-0aa4-4607-99bf-7763509f7455",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ctrl",
+                    "type": "Button",
+                    "id": "45f73f78-5320-494d-bf9c-daa30d247c4a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PauseGame",
+                    "type": "Button",
+                    "id": "9e8a8328-ccde-4721-843d-cd86bfdcfdeb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "79f23769-f0dd-4ded-adb3-2b5a22359157",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "27d7d564-beda-4f40-9854-a0509afc7052",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardAndMouse",
+                    "action": "LeftClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "64c0fd3b-dcef-4590-a780-eb446540103e",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ctrl",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4c58996f-035e-4388-a339-84f742981141",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardAndMouse",
+                    "action": "RightClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9959d11f-13cf-4051-8f2c-99507d6bd455",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PauseGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "KeyboardAndMouse",
+            "bindingGroup": "KeyboardAndMouse",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

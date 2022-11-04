@@ -8,19 +8,29 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playerInput;
     private Rigidbody2D RB2D;
     private Vector2 movementInput;
-    public float speed;
+    public float characterSpeed;
     
     void Start()
     {
+        if(characterSpeed == 0)
+        {
+            characterSpeed = 4;
+        }
+
         playerInput = GameManager.Instance.playerInput;
         RB2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        if (!GameManager.Instance || !GameManager.Instance.player || !GameManager.Instance.playerInput)
+        if (!GameManager.Instance || !GameManager.Instance.player || !GameManager.Instance.playerInput || 
+            !GameManager.Instance.playerInput.currentActionMap.name.Equals("InGamePlayer"))
+        {
+            movementInput = Vector3.zero;
             return;
+        }
+            
 
         movementInput = playerInput.actions["Movement"].ReadValue<Vector2>();
     }
@@ -40,6 +50,6 @@ public class PlayerController : MonoBehaviour
 
     public void MovePlayer(Vector2 movementInput)
     {
-        RB2D.velocity = movementInput * speed;
+        RB2D.velocity = movementInput * characterSpeed;
     }
 }

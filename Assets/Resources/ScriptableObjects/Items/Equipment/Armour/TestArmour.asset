@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41458b55a04e96648ad9177ffc62cbc4, type: 3}
+  m_Name: TestArmour
+  m_EditorClassIdentifier: 
+  itemName: Test Armour
+  inventorySprite: {fileID: 21300000, guid: 2eb82ac66de274383af71b2eb2c75da0, type: 3}
+  stackable: 0
+  stackableAmount: 0
+  itemType: 0
+  durability: 55
+  equipmentPrefab: {fileID: 0}
+  equipmentType: 2
+  defense: 12
