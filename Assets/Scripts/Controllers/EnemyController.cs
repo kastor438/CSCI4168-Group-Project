@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class EnemyController : MonoBehaviour
 {
-    public Transform player;
+    public GameObject player;
     public float speed = 100f;
     public float nextWaypointDistance = 1f;
 
@@ -29,7 +29,9 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void OnPathComplete(Path p) {
+    //Called when path is complete
+    void OnPathComplete(Path p) 
+    {
         if (!p.error) 
         {
             path = p;
@@ -41,7 +43,7 @@ public class EnemyController : MonoBehaviour
     {
         if (seeker.IsDone()) //Checks if seeker is currently calculating a path
         {
-            seeker.StartPath(rigidbody.position, player.position, OnPathComplete);
+            seeker.StartPath(rigidbody.position, player.transform.position, OnPathComplete);
         }
     }
 
