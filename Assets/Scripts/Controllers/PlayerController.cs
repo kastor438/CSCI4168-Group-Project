@@ -7,11 +7,18 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerInput playerInput;
     private Rigidbody2D RB2D;
+    private Animator playerAnimator;
     private Vector2 movementInput;
     public float characterSpeed;
-    
+
+    public bool lookingUp { get; private set; }
+    public bool lookingDown { get; private set; }
+    public bool lookingRight { get; private set; }
+    public bool lookingLeft { get; private set; }
+
     void Start()
     {
+        lookingDown = true;
         if(characterSpeed == 0)
         {
             characterSpeed = 4;
@@ -19,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
         playerInput = GameManager.Instance.playerInput;
         RB2D = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,6 +41,56 @@ public class PlayerController : MonoBehaviour
             
 
         movementInput = playerInput.actions["Movement"].ReadValue<Vector2>();
+        playerAnimator.SetFloat("Horizontal", (movementInput.x));
+        playerAnimator.SetFloat("Vertical", (movementInput.y));
+        playerAnimator.SetFloat("Speed", (movementInput.sqrMagnitude));
+        if (movementInput.magnitude > 0)
+        {
+            if (movementInput.y > 0)
+            {
+                lookingUp = true;
+                lookingDown = false;
+                lookingRight = false;
+                lookingLeft = false;
+                playerAnimator.SetFloat("LookingUp", 1);
+                playerAnimator.SetFloat("LookingDown", 0);
+                playerAnimator.SetFloat("LookingRight", 0);
+                playerAnimator.SetFloat("LookingLeft", 0);
+            }
+            else if (movementInput.y < 0)
+            {
+                lookingUp = false;
+                lookingDown = true;
+                lookingRight = false;
+                lookingLeft = false;
+                playerAnimator.SetFloat("LookingUp", 0);
+                playerAnimator.SetFloat("LookingDown", 1);
+                playerAnimator.SetFloat("LookingRight", 0);
+                playerAnimator.SetFloat("LookingLeft", 0);
+            }
+            else if (movementInput.x > 0)
+            {
+                lookingUp = false;
+                lookingDown = false;
+                lookingRight = true;
+                lookingLeft = false;
+                playerAnimator.SetFloat("LookingUp", 0);
+                playerAnimator.SetFloat("LookingDown", 0);
+                playerAnimator.SetFloat("LookingRight", 1);
+                playerAnimator.SetFloat("LookingLeft", 0);
+            }
+            else if (movementInput.x < 0)
+            {
+                lookingUp = false;
+                lookingDown = false;
+                lookingRight = false;
+                lookingLeft = true;
+                playerAnimator.SetFloat("LookingUp", 0);
+                playerAnimator.SetFloat("LookingDown", 0);
+                playerAnimator.SetFloat("LookingRight", 0);
+                playerAnimator.SetFloat("LookingLeft", 1);
+            }
+        }
     }
 
     public void FixedUpdate()

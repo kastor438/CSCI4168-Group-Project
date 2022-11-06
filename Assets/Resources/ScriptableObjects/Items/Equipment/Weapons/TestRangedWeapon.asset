@@ -9,15 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9752131d8d155a3449eb172447b78afe, type: 3}
-  m_Name: TestWeapon
+  m_Script: {fileID: 11500000, guid: abc08e0cc0ebcdc4f86870e560f7c299, type: 3}
+  m_Name: TestRangedWeapon
   m_EditorClassIdentifier: 
-  itemName: Test Weapon
-  inventorySprite: {fileID: 21300000, guid: 37eaf6e537ca749adaaea0a3e900d411, type: 3}
+  itemName: Test Ranged Weapon
+  inventorySprite: {fileID: 21300000, guid: 4dbf9e4cb148c4dc991ed1bfc861e5e9, type: 3}
   stackable: 0
   stackableAmount: 0
   itemType: 0
-  durability: 15
+  durability: 12
   equipmentPrefab: {fileID: 0}
+  equipmentType: 0
   damage: 9
-  damageType: 1
+  attackSpeed: 1
+  hasSpecialAttack: 0
+  isTwoHanded: 0
+  damageType: 0
+  projectilePrefab: {fileID: 0}
