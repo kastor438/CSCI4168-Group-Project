@@ -1,31 +1,82 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemyController : MonoBehaviour
 {
     public GameObject player;
-    public float speed;
+    public float speed = 100f;
+    public float nextWaypointDistance = 1f;
 
-    private float distance;
+    Path path;
+    int currentWaypoint = 0;
+    bool reachedEndOfPath = false;
+
+    Seeker seeker;
+    Rigidbody2D rigidbody;
     // Start is called before the first frame update
     void Start() {
-        speed = 1.5f;
-    }
+        seeker = GetComponent<Seeker>();
+        rigidbody = GetComponent<Rigidbody2D>();
 
-    // Update is called once per frame
-    void Update() {
-        distance = Vector2.Distance(transform.position, player.transform.position);
+        //Specifies a method to be repeated
+        InvokeRepeating("UpdatePath", 0f, .5f);
 
-        if (distance < 4) {
-            Chase();
+        if (speed == 0) 
+        {
+            speed = 100f;
         }
     }
 
-    private void IsPlayerInRange() {
-    } 
+    //Called when path is complete
+    void OnPathComplete(Path p) 
+    {
+        if (!p.error) 
+        {
+            path = p;
+            currentWaypoint = 0;
+        }
+    }
 
-    private void Chase() {
-        transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+    void UpdatePath()
+    {
+        if (seeker.IsDone()) //Checks if seeker is currently calculating a path
+        {
+            seeker.StartPath(rigidbody.position, player.transform.position, OnPathComplete);
+        }
+    }
+
+//Called a fixed number of time per seconds to properly work with physics
+    void FixedUpdate() {
+        if (path == null) 
+        {
+            return;
+        }
+
+        //Checks if enemy has reached the end
+        if (currentWaypoint >= path.vectorPath.Count)
+        {
+            reachedEndOfPath = true;
+            return;
+        } else {
+            reachedEndOfPath = false;
+        }
+
+        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rigidbody.position).normalized;
+        Vector2 force = direction * speed * Time.deltaTime; //Force applied to the enemy to make it move
+
+        //Adds force to the enemy
+        rigidbody.AddForce(force);
+
+        //Distance from next waypoint
+        float distance = Vector2.Distance(rigidbody.position, path.vectorPath[currentWaypoint]);
+
+        //Checks if reached the current waypoint so it can move to the next one
+        if (distance < nextWaypointDistance)
+        {
+            currentWaypoint++;
+        }
+
     }
 }
