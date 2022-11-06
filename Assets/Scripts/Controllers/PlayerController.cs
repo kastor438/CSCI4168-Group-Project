@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D RB2D;
     private Animator playerAnimator;
     private Vector2 movementInput;
+
+    public Vector2 forwardVector;
     public float characterSpeed;
 
     public bool lookingUp { get; private set; }
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
                 lookingDown = false;
                 lookingRight = false;
                 lookingLeft = false;
+                forwardVector = Vector2.up;
                 playerAnimator.SetFloat("LookingUp", 1);
                 playerAnimator.SetFloat("LookingDown", 0);
                 playerAnimator.SetFloat("LookingRight", 0);
@@ -63,6 +66,7 @@ public class PlayerController : MonoBehaviour
                 lookingDown = true;
                 lookingRight = false;
                 lookingLeft = false;
+                forwardVector = Vector2.down;
                 playerAnimator.SetFloat("LookingUp", 0);
                 playerAnimator.SetFloat("LookingDown", 1);
                 playerAnimator.SetFloat("LookingRight", 0);
@@ -74,6 +78,7 @@ public class PlayerController : MonoBehaviour
                 lookingDown = false;
                 lookingRight = true;
                 lookingLeft = false;
+                forwardVector = Vector2.right;
                 playerAnimator.SetFloat("LookingUp", 0);
                 playerAnimator.SetFloat("LookingDown", 0);
                 playerAnimator.SetFloat("LookingRight", 1);
@@ -85,6 +90,7 @@ public class PlayerController : MonoBehaviour
                 lookingDown = false;
                 lookingRight = false;
                 lookingLeft = true;
+                forwardVector = Vector2.left;
                 playerAnimator.SetFloat("LookingUp", 0);
                 playerAnimator.SetFloat("LookingDown", 0);
                 playerAnimator.SetFloat("LookingRight", 0);
