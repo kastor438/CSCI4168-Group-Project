@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public PlayerInput playerInput { get; private set; }
     public CharacterClass characterClass;
     public UserInterface userInterface;
+    public InventoryManager inventoryManager { get; private set; }
+    public EquipmentManager equipmentManager { get; private set; }
     public GameObject player;
 
     public void Awake()
@@ -21,6 +23,8 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(Instance);
 
+        inventoryManager = GetComponent<InventoryManager>();
+        equipmentManager = GetComponent<EquipmentManager>();
         playerInput = GetComponent<PlayerInput>();
     }
 

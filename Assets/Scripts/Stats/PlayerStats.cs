@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerStats : CharacterStats
 {
-    public string characterName;
+    internal string characterName;
     
     public override IEnumerator GotHit()
     {

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,10 +7,12 @@ public class UserInterface : MonoBehaviour
 {
     // All Canvases will be here.
     public PauseMenuCanvas pauseMenuCanvas;
+    public InventoryCanvas inventoryCanvas;
 
     public void Start()
     {
-        
+        pauseMenuCanvas.gameObject.SetActive(false);
+        inventoryCanvas.gameObject.SetActive(false);
     }
 
     public void Update()
@@ -17,15 +20,40 @@ public class UserInterface : MonoBehaviour
         if (!GameManager.Instance || !GameManager.Instance.playerInput)
             return;
 
-        if (GameManager.Instance.playerInput.currentActionMap.name.Equals("InGamePlayer") && 
-            GameManager.Instance.playerInput.actions["PauseGame"].WasPerformedThisFrame())
+        if (GameManager.Instance.playerInput.currentActionMap.name.Equals("InGamePlayer"))
         {
-            OpenPauseMenu();
+            // Check to pause game
+            if(GameManager.Instance.playerInput.actions["PauseGame"].WasPerformedThisFrame()){
+                OpenPauseMenu();
+            }
+
+            // Check for inventory input
+            if (GameManager.Instance.playerInput.actions["OpenInventory"].WasPerformedThisFrame())
+            {
+                OpenInventory();
+            }
         }
-        else if(GameManager.Instance.playerInput.currentActionMap.name.Equals("PausedGame") && 
-            GameManager.Instance.playerInput.actions["UnpauseGame"].WasPerformedThisFrame())
+        else if (GameManager.Instance.playerInput.currentActionMap.name.Equals("PausedGame"))
         {
-            ClosePauseMenu();
+            // Check to unpause game
+            if(GameManager.Instance.playerInput.actions["UnpauseGame"].WasPerformedThisFrame())
+            {
+                ClosePauseMenu();
+            }
+        } 
+        else if (GameManager.Instance.playerInput.currentActionMap.name.Equals("InventoryOpen"))
+        {
+            // Check to pause game
+            if (GameManager.Instance.playerInput.actions["PauseGame"].WasPerformedThisFrame())
+            {
+                OpenPauseMenu();
+            }
+
+            // Check for inventory input
+            if (GameManager.Instance.playerInput.actions["CloseInventory"].WasPerformedThisFrame())
+            {
+                CloseInventory();
+            }
         }
     }
 
@@ -38,8 +66,20 @@ public class UserInterface : MonoBehaviour
 
     public void ClosePauseMenu()
     {
-        Time.timeScale = 1;
-        GameManager.Instance.playerInput.SwitchCurrentActionMap("InGamePlayer");
+        GameManager.Instance.playerInput.SwitchCurrentActionMap(inventoryCanvas.gameObject.activeSelf ? "InventoryOpen" : "InGamePlayer");
         pauseMenuCanvas.gameObject.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void OpenInventory()
+    {
+        GameManager.Instance.playerInput.SwitchCurrentActionMap("InventoryOpen");
+        inventoryCanvas.gameObject.SetActive(true);
+    }
+
+    public void CloseInventory()
+    {
+        GameManager.Instance.playerInput.SwitchCurrentActionMap("InGamePlayer");
+        inventoryCanvas.gameObject.SetActive(false);
     }
 }
