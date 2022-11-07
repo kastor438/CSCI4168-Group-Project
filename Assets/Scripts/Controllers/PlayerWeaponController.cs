@@ -24,7 +24,7 @@ public class PlayerWeaponController : MonoBehaviour, IWeapon
     public void SetWeapon(Weapon weapon)
     {
         thisWeapon = weapon;
-        weaponGameObject = Instantiate(Resources.Load<GameObject>("Prefabs/Weapons/" + thisWeapon.itemName), transform);
+        weaponGameObject = Instantiate(weapon.equipmentPrefab, transform);
         weaponAnimator = weaponGameObject.GetComponent<Animator>();
     }
 
@@ -33,16 +33,21 @@ public class PlayerWeaponController : MonoBehaviour, IWeapon
         if (!playerInput || !thisWeapon || !weaponGameObject || !weaponAnimator)
             return;
 
-        if (playerInput.actions["BaseAttack"].WasPerformedThisFrame())
+        if (playerInput.actions["BaseAttack"].IsPressed() && !isAttacking)
         {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(playerInput.actions["MousePos"].ReadValue<Vector2>());
+            mousePos.z = 0;
+            Vector3 direction = Vector3.Normalize(mousePos - transform.position);
             if (thisWeapon.GetType() == typeof(RangedWeapon))
             {
-                GameObject newProjectile = Instantiate(((RangedWeapon)thisWeapon).projectilePrefab);
+                GameObject newProjectile = Instantiate(((RangedWeapon)thisWeapon).projectilePrefab, transform.position + direction, Quaternion.identity);
+
+                newProjectile.GetComponent<ProjectileController>().SetProjectileInfo(direction, ((RangedWeapon)thisWeapon).projectileSpeed, ((RangedWeapon)thisWeapon).projectileLifetime);
                 spawnedProjectiles.Add(newProjectile);
             }
             StartCoroutine(PerformAttack());
         }
-        else if (thisWeapon.hasSpecialAttack && playerInput.actions["SpecialAttack"].WasPerformedThisFrame())
+        else if (thisWeapon.hasSpecialAttack && playerInput.actions["SpecialAttack"].WasPerformedThisFrame() && !isAttacking)
         {
             if (thisWeapon.GetType() == typeof(RangedWeapon))
             {

@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private Animator playerAnimator;
     private Vector2 movementInput;
 
-    public Vector2 forwardVector;
+    public Vector3 forwardVector;
     public float characterSpeed;
 
     public bool lookingUp { get; private set; }

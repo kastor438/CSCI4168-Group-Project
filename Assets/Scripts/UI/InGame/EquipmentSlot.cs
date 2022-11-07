@@ -13,8 +13,11 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     public Image equipmentImage;
     public Button equipmentButton;
 
+    public bool usable;
+
     public void SlotSetupStart()
     {
+        usable = true;
         equipment = null;
         equipmentImage.sprite = null;
         equipmentImage.color = Color.clear;
@@ -23,8 +26,11 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 
     public void EquipItem(Equipment equipment)
     {
-        this.equipment = equipment;
-        DisplayEquipmentInfo();
+        if (usable)
+        {
+            this.equipment = equipment;
+            DisplayEquipmentInfo();
+        }
     }
 
     public void DisplayEquipmentInfo()
@@ -51,7 +57,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 
         if (GameManager.Instance.playerInput.actions["Ctrl"].IsPressed() && 
             GameManager.Instance.playerInput.actions["RightClick"].WasPerformedThisFrame() &&
-            equipment != null)
+            equipment != null && usable)
         {
             (bool, int) AddedRemainder = GameManager.Instance.inventoryManager.AddItem(equipment, 1);
             if (!AddedRemainder.Item1)

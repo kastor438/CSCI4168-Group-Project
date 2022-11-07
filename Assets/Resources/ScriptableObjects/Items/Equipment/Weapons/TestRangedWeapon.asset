@@ -18,11 +18,13 @@ MonoBehaviour:
   stackableAmount: 0
   itemType: 0
   durability: 12
-  equipmentPrefab: {fileID: 0}
+  equipmentPrefab: {fileID: 5979047960907626235, guid: eee1adf9b4500464a9c405da14503ca6, type: 3}
   equipmentType: 0
   damage: 9
-  attackSpeed: 1
+  attackSpeed: 4
   hasSpecialAttack: 0
   isTwoHanded: 0
-  damageType: 0
-  projectilePrefab: {fileID: 0}
+  damageType: 3
+  projectileSpeed: 14
+  projectileLifetime: 1
+  projectilePrefab: {fileID: 7220262887685890661, guid: 993d247f5b778cb48bcfbdbe1025c79a, type: 3}
