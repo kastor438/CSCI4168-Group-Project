@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abc08e0cc0ebcdc4f86870e560f7c299, type: 3}
-  m_Name: TestRangedWeapon
+  m_Name: Pistol
   m_EditorClassIdentifier: 
-  itemName: Test Ranged Weapon
-  inventorySprite: {fileID: 21300000, guid: 4dbf9e4cb148c4dc991ed1bfc861e5e9, type: 3}
+  itemName: Pistol
+  inventorySprite: {fileID: 21300000, guid: 89672956f3911d24a9a72e65235c9b02, type: 3}
   stackable: 0
   stackableAmount: 0
   itemType: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
   attackSpeed: 4
   hasSpecialAttack: 0
   isTwoHanded: 0
-  damageType: 3
-  projectileSpeed: 14
-  projectileLifetime: 1
+  damageType: 0
+  projectileSpeed: 18
+  projectileLifetime: 0.8
   projectilePrefab: {fileID: 7220262887685890661, guid: 993d247f5b778cb48bcfbdbe1025c79a, type: 3}
