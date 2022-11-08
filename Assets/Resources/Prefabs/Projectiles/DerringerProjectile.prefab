@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6991282109079752320}
   - component: {fileID: 267072395845063607}
   m_Layer: 0
-  m_Name: TestProjectile
+  m_Name: DerringerProjectile
   m_TagString: FriendlyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

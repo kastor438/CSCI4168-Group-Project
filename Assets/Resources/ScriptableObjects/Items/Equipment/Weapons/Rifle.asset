@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc08e0cc0ebcdc4f86870e560f7c299, type: 3}
+  m_Name: Rifle
+  m_EditorClassIdentifier: 
+  itemName: Rifle
+  inventorySprite: {fileID: 21300000, guid: ad3f559b522328040b8317ba3d1a73f3, type: 3}
+  stackable: 0
+  stackableAmount: 0
+  itemType: 0
+  durability: 12
+  equipmentPrefab: {fileID: 5979047960907626235, guid: e52d68145a9ae5f4fa47cb71d0f07fd5, type: 3}
+  equipmentType: 0
+  damage: 24
+  attackSpeed: 1
+  hasSpecialAttack: 0
+  isTwoHanded: 0
+  damageType: 0
+  projectileSpeed: 23
+  projectileLifetime: 3
+  projectilePrefab: {fileID: 7220262887685890661, guid: 3d1e68e0fe3f6f04e88f761c78c8ff1e, type: 3}
