@@ -41,6 +41,7 @@ public class EquipmentManager : MonoBehaviour
                         {
                             Equipment oldEquipment = equipmentSlots[i].equipment;
                             GameManager.Instance.inventoryManager.AddItem(oldEquipment, 1);
+                            Destroy(GameManager.Instance.player.GetComponentInChildren<PlayerWeaponController>().transform.GetChild(0).gameObject);
                         }
                         equipmentSlots[i].EquipItem(newEquipment);
                         GameManager.Instance.player.GetComponentInChildren<PlayerWeaponController>().SetWeapon(newWeapon);
@@ -55,6 +56,7 @@ public class EquipmentManager : MonoBehaviour
                                 {
                                     Equipment oldEquipment = equipmentSlots[i].equipment;
                                     GameManager.Instance.inventoryManager.AddItem(oldEquipment, 1);
+                                    Destroy(GameManager.Instance.player.GetComponentInChildren<PlayerWeaponController>().transform.GetChild(0).gameObject);
                                 }
                                 if (equipmentSlots[j].equipment != null)
                                 {
@@ -62,7 +64,7 @@ public class EquipmentManager : MonoBehaviour
                                     GameManager.Instance.inventoryManager.AddItem(oldEquipment, 1);
                                 }
                                 equipmentSlots[i].EquipItem(newEquipment);
-                                equipmentSlots[j].usable = false;
+                                /*equipmentSlots[j].usable = false;*/
                                 break;
                             }
                         }
