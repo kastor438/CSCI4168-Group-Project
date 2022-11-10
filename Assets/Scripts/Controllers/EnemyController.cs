@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class EnemyController : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     public float speed = 100f;
     public float nextWaypointDistance = 1f;
 
@@ -14,11 +14,12 @@ public class EnemyController : MonoBehaviour
     bool reachedEndOfPath = false;
 
     Seeker seeker;
-    Rigidbody2D rigidbody;
+    Rigidbody2D RB2D;
     // Start is called before the first frame update
     void Start() {
+        player = GameManager.Instance.player;
         seeker = GetComponent<Seeker>();
-        rigidbody = GetComponent<Rigidbody2D>();
+        RB2D = GetComponent<Rigidbody2D>();
 
         //Specifies a method to be repeated
         InvokeRepeating("UpdatePath", 0f, .5f);
@@ -43,7 +44,7 @@ public class EnemyController : MonoBehaviour
     {
         if (seeker.IsDone()) //Checks if seeker is currently calculating a path
         {
-            seeker.StartPath(rigidbody.position, player.transform.position, OnPathComplete);
+            seeker.StartPath(RB2D.position, player.transform.position, OnPathComplete);
         }
     }
 
@@ -63,14 +64,14 @@ public class EnemyController : MonoBehaviour
             reachedEndOfPath = false;
         }
 
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rigidbody.position).normalized;
+        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - RB2D.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime; //Force applied to the enemy to make it move
 
         //Adds force to the enemy
-        rigidbody.AddForce(force);
+        RB2D.AddForce(force);
 
         //Distance from next waypoint
-        float distance = Vector2.Distance(rigidbody.position, path.vectorPath[currentWaypoint]);
+        float distance = Vector2.Distance(RB2D.position, path.vectorPath[currentWaypoint]);
 
         //Checks if reached the current waypoint so it can move to the next one
         if (distance < nextWaypointDistance)

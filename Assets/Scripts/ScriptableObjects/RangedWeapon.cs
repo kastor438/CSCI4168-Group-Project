@@ -7,5 +7,7 @@ public class RangedWeapon : Weapon
 {
     public float projectileSpeed;
     public float projectileLifetime;
+    [Tooltip("The acceleration the gun pushes on the player when firing.")]
+    public float recoilAcceleration;
     public GameObject projectilePrefab;
 }
