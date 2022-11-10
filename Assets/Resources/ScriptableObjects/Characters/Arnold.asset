@@ -10,9 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b66f169c753d874cacdad8dec53cf11, type: 3}
-  m_Name: Test 1
+  m_Name: Arnold
   m_EditorClassIdentifier: 
-  characterName: Test 1
+  characterName: Arnold
   characterPrefab: {fileID: 0}
-  maxHealth: 11
+  characterSprite: {fileID: 0}
+  maxHealth: 112
   characterSpeed: 3
+  characterWeight: 150
+  meleeAttackSpeedMultiplier: 0
+  rangedAttackSpeedMultiplier: 0
+  oxygenConsumptionRate: 6
+  maxCarryWeight: 150
+  suffersFromRecoil: 0

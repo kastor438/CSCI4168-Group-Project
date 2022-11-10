@@ -7,7 +7,7 @@ public abstract class CharacterStats : MonoBehaviour
     public int maxHealth { get; internal set; }
     public int currHealth { get; internal set; }
 
-    public void Start()
+    public virtual void Start()
     {
         maxHealth = 10;
         currHealth = maxHealth;

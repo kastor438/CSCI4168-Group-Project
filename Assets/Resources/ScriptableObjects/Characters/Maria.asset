@@ -10,9 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b66f169c753d874cacdad8dec53cf11, type: 3}
-  m_Name: Test 2
+  m_Name: Maria
   m_EditorClassIdentifier: 
-  characterName: Test 2
+  characterName: Maria
   characterPrefab: {fileID: 0}
-  maxHealth: 7
-  characterSpeed: 4
+  characterSprite: {fileID: 0}
+  maxHealth: 40
+  characterSpeed: 5
+  characterWeight: 35
+  meleeAttackSpeedMultiplier: 0
+  rangedAttackSpeedMultiplier: 0
+  oxygenConsumptionRate: 2
+  maxCarryWeight: 20
+  suffersFromRecoil: 1

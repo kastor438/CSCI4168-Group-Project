@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +10,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D RB2D;
     private Animator playerAnimator;
     private Vector2 movementInput;
+    private bool sufferingRecoil;
 
     public Vector3 forwardVector;
     public float characterSpeed;
-
+    
     public bool lookingUp { get; private set; }
     public bool lookingDown { get; private set; }
     public bool lookingRight { get; private set; }
@@ -101,19 +103,47 @@ public class PlayerController : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (movementInput.magnitude > 0)
+        if (!sufferingRecoil)
         {
-            MovePlayer(movementInput);
+            if (movementInput.magnitude > 0)
+            {
+                MovePlayer(movementInput);
+            }
+            else if (RB2D.velocity.magnitude > 1f)
+            {
+                // Not moving
+                RB2D.velocity *= 0.85f;
+            }
+            else
+            {
+                RB2D.velocity = Vector2.zero;
+            }
         }
         else
         {
-            // Not moving
-            RB2D.velocity = Vector3.zero;
+            if (RB2D.velocity.magnitude > 1f)
+            {
+                // Not moving
+                RB2D.velocity *= 0.9f;
+            }
+            else
+            {
+                RB2D.velocity = Vector2.zero;
+                sufferingRecoil = false;
+            }
         }
     }
 
     public void MovePlayer(Vector2 movementInput)
     {
         RB2D.velocity = movementInput * characterSpeed;
+    }
+
+    public void RangedRecoil(Vector3 direction, float recoilAcceleration)
+    {
+        if (direction == Vector3.zero || recoilAcceleration == 0 || !GameManager.Instance || !GameManager.Instance.characterClass || GameManager.Instance.characterClass.characterWeight == 0)
+            return;
+        sufferingRecoil = true;
+        RB2D.AddForce(direction * (recoilAcceleration * GameManager.Instance.characterClass.characterWeight));
     }
 }

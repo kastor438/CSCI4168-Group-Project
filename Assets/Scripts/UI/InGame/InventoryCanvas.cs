@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 public class InventoryCanvas : MonoBehaviour
 {
-    public GameObject dragItemPopup;
-    public Image dragItemImage;
-    public TextMeshProUGUI dragItemText;
+    public GameObject itemPopup;
+    public Image popupItemImage;
+    public TextMeshProUGUI popupItemName;
 
     public void CloseInventoryOnClick()
     {
@@ -20,17 +20,30 @@ public class InventoryCanvas : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+        if (GameManager.Instance && GameManager.Instance.playerInput && 
+            GameManager.Instance.playerInput.currentActionMap.name.Equals("InventoryOpen") && 
+            GameManager.Instance.inventoryManager.movingItem)
+        {
+            CanvasScaler scaler = GetComponentInParent<CanvasScaler>();
+            Vector2 mousePos = GameManager.Instance.playerInput.actions["MousePosition"].ReadValue<Vector2>();
+            Debug.Log(scaler.referenceResolution);
+            itemPopup.GetComponent<RectTransform>().anchoredPosition = new Vector2((mousePos.x * scaler.referenceResolution.x / Screen.width)-Screen.width*1f, (mousePos.y * scaler.referenceResolution.y / Screen.height) - Screen.height * 1.1f);
+        }
+    }
+
     public void DisplayDragItemPopup(Item item, int quantity)
     {
-        dragItemImage.sprite = item.inventorySprite;
-        dragItemText.text = quantity.ToString();
-        dragItemPopup.SetActive(true);
+        popupItemImage.sprite = item.inventorySprite;
+        popupItemName.text = item.itemName;
+        itemPopup.SetActive(true);
     }
 
     public void HideDragItemPopup()
     {
-        dragItemImage.sprite = null;
-        dragItemText.text = "";
-        dragItemPopup.SetActive(false);
+        popupItemImage.sprite = null;
+        popupItemName.text = "";
+        itemPopup.SetActive(false);
     }
 }
