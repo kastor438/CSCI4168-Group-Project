@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b66f169c753d874cacdad8dec53cf11, type: 3}
-  m_Name: Test 3
+  m_Script: {fileID: 11500000, guid: 481c4fc0914f63248a044e7225a0812d, type: 3}
+  m_Name: TestEnemy
   m_EditorClassIdentifier: 
-  characterName: Test 3
-  characterPrefab: {fileID: 0}
-  maxHealth: 88
-  characterSpeed: 1
+  enemyName: Test Enemy
+  maxHealth: 34
+  damage: 3
+  attackSpeed: 1
+  speed: 2

@@ -2,17 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStats : MonoBehaviour
+public class EnemyStats : CharacterStats
 {
-    // Start is called before the first frame update
-    void Start()
+    public Enemy enemy;
+    internal string enemyName;
+
+    public override void Start()
     {
-        
+        base.Start();
+        maxHealth = enemy.maxHealth;
+        currHealth = maxHealth; 
     }
 
-    // Update is called once per frame
-    void Update()
+    public override IEnumerator GotHit()
     {
-        
+        yield return new WaitForSeconds(0);
+    }
+
+    public override IEnumerator Death()
+    {
+        yield return new WaitForSeconds(0);
+        Destroy(gameObject);
+    }
+
+    internal void SetCharacterStats(string characterName, int maxHealth)
+    {
+        this.maxHealth = maxHealth;
+        this.currHealth = maxHealth;
     }
 }

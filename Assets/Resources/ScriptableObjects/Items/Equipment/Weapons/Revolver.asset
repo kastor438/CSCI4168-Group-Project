@@ -27,4 +27,5 @@ MonoBehaviour:
   damageType: 0
   projectileSpeed: 13
   projectileLifetime: 1.3
+  recoilAcceleration: 7
   projectilePrefab: {fileID: 7220262887685890661, guid: 8e941d68904ec754db89575e855bcae3, type: 3}

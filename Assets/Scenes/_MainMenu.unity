@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 1304929370}
   - component: {fileID: 1304929369}
   m_Layer: 5
-  m_Name: CaracterOptionScrollView
+  m_Name: CharacterOptionScrollView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1036,7 +1036,7 @@ MonoBehaviour:
   m_Content: {fileID: 1849274315}
   m_Horizontal: 1
   m_Vertical: 0
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135

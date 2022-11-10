@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,18 +10,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D RB2D;
     private Animator playerAnimator;
     private Vector2 movementInput;
+    private bool sufferingRecoil;
 
     public Vector3 forwardVector;
     public float characterSpeed;
 
-    public bool lookingUp { get; private set; }
-    public bool lookingDown { get; private set; }
-    public bool lookingRight { get; private set; }
-    public bool lookingLeft { get; private set; }
-
     void Start()
     {
-        lookingDown = true;
         if(characterSpeed == 0)
         {
             characterSpeed = 4;
@@ -29,6 +25,11 @@ public class PlayerController : MonoBehaviour
         playerInput = GameManager.Instance.playerInput;
         RB2D = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+
+        forwardVector = Vector2.down;
+        playerAnimator.SetFloat("Horizontal", 0);
+        playerAnimator.SetFloat("Vertical", -1);
+        playerAnimator.SetFloat("Speed", 0);
     }
 
     // Update is called once per frame
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
             !GameManager.Instance.playerInput.currentActionMap.name.Equals("InGamePlayer"))
         {
             movementInput = Vector3.zero;
+            playerAnimator.SetFloat("Speed", (movementInput.sqrMagnitude));
             return;
         }
             
@@ -50,10 +52,6 @@ public class PlayerController : MonoBehaviour
         {
             if (movementInput.y > 0)
             {
-                lookingUp = true;
-                lookingDown = false;
-                lookingRight = false;
-                lookingLeft = false;
                 forwardVector = Vector2.up;
                 playerAnimator.SetFloat("LookingUp", 1);
                 playerAnimator.SetFloat("LookingDown", 0);
@@ -62,10 +60,6 @@ public class PlayerController : MonoBehaviour
             }
             else if (movementInput.y < 0)
             {
-                lookingUp = false;
-                lookingDown = true;
-                lookingRight = false;
-                lookingLeft = false;
                 forwardVector = Vector2.down;
                 playerAnimator.SetFloat("LookingUp", 0);
                 playerAnimator.SetFloat("LookingDown", 1);
@@ -74,10 +68,6 @@ public class PlayerController : MonoBehaviour
             }
             else if (movementInput.x > 0)
             {
-                lookingUp = false;
-                lookingDown = false;
-                lookingRight = true;
-                lookingLeft = false;
                 forwardVector = Vector2.right;
                 playerAnimator.SetFloat("LookingUp", 0);
                 playerAnimator.SetFloat("LookingDown", 0);
@@ -86,10 +76,6 @@ public class PlayerController : MonoBehaviour
             }
             else if (movementInput.x < 0)
             {
-                lookingUp = false;
-                lookingDown = false;
-                lookingRight = false;
-                lookingLeft = true;
                 forwardVector = Vector2.left;
                 playerAnimator.SetFloat("LookingUp", 0);
                 playerAnimator.SetFloat("LookingDown", 0);
@@ -101,19 +87,47 @@ public class PlayerController : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (movementInput.magnitude > 0)
+        if (!sufferingRecoil)
         {
-            MovePlayer(movementInput);
+            if (movementInput.magnitude > 0)
+            {
+                MovePlayer(movementInput);
+            }
+            else if (RB2D.velocity.magnitude > 1f)
+            {
+                // Not moving
+                RB2D.velocity *= 0.85f;
+            }
+            else
+            {
+                RB2D.velocity = Vector2.zero;
+            }
         }
         else
         {
-            // Not moving
-            RB2D.velocity = Vector3.zero;
+            if (RB2D.velocity.magnitude > 1f)
+            {
+                // Not moving
+                RB2D.velocity *= 0.9f;
+            }
+            else
+            {
+                RB2D.velocity = Vector2.zero;
+                sufferingRecoil = false;
+            }
         }
     }
 
     public void MovePlayer(Vector2 movementInput)
     {
         RB2D.velocity = movementInput * characterSpeed;
+    }
+
+    public void RangedRecoil(Vector3 direction, float recoilAcceleration)
+    {
+        if (direction == Vector3.zero || recoilAcceleration == 0 || !GameManager.Instance || !GameManager.Instance.characterClass || GameManager.Instance.characterClass.characterWeight == 0)
+            return;
+        sufferingRecoil = true;
+        RB2D.AddForce(direction * (recoilAcceleration * GameManager.Instance.characterClass.characterWeight));
     }
 }

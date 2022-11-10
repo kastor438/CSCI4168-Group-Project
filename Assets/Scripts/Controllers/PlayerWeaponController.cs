@@ -41,8 +41,12 @@ public class PlayerWeaponController : MonoBehaviour, IWeapon
             if (thisWeapon.GetType() == typeof(RangedWeapon))
             {
                 GameObject newProjectile = Instantiate(((RangedWeapon)thisWeapon).projectilePrefab, transform.position + direction, Quaternion.identity);
-
-                newProjectile.GetComponent<ProjectileController>().SetProjectileInfo(direction, ((RangedWeapon)thisWeapon).projectileSpeed, ((RangedWeapon)thisWeapon).projectileLifetime);
+                if (GameManager.Instance.characterClass.suffersFromRecoil)
+                {
+                    GetComponentInParent<PlayerController>().RangedRecoil(-direction, ((RangedWeapon)thisWeapon).recoilAcceleration);
+                }
+                
+                newProjectile.GetComponent<ProjectileController>().SetProjectileInfo(direction, ((RangedWeapon)thisWeapon));
                 spawnedProjectiles.Add(newProjectile);
             }
             StartCoroutine(PerformAttack());

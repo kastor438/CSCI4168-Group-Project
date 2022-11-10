@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -15,6 +16,39 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < inventorySlots.Count; i++)
         {
             inventorySlots[i].SlotSetupStart();
+        }
+    }
+
+    public void Update()
+    {
+        if (!GameManager.Instance || !GameManager.Instance.playerInput || !GameManager.Instance.player ||
+            !GameManager.Instance.playerInput.currentActionMap.name.Equals("InGamePlayer"))
+            return;
+
+        if (GameManager.Instance.playerInput.actions["RefuelOxygen"].WasPerformedThisFrame())
+        {
+            for (int i = 0; i < inventorySlots.Count; i++)
+            {
+                if (inventorySlots != null && inventorySlots[i].item && inventorySlots[i].item.itemType == ItemType.Consumable)
+                {
+                    Consumable consumable = (Consumable)inventorySlots[i].item;
+                    if (consumable.effectedStat == EffectedStat.Oxygen)
+                    {
+                        int usableOxygen = (int)Mathf.Clamp(consumable.effectValue * inventorySlots[i].itemQuantity, 1, 100 - (int)GameManager.Instance.player.GetComponent<PlayerStats>().oxygenLevel);
+                        GameManager.Instance.player.GetComponent<PlayerStats>().OxygenEffect(usableOxygen);
+                        inventorySlots[i].itemQuantity -= usableOxygen;
+                        if (inventorySlots[i].itemQuantity <= 0)
+                        {
+                            inventorySlots[i].item = null;
+                        }
+                        inventorySlots[i].DisplayItemInfo();
+                        if (GameManager.Instance.player.GetComponent<PlayerStats>().oxygenLevel >= 100)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
 
