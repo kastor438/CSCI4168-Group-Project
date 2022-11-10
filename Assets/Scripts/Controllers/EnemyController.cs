@@ -42,6 +42,8 @@ public class EnemyController : MonoBehaviour
 
     void UpdatePath()
     {
+        if (!player)
+            return;
         if (seeker.IsDone()) //Checks if seeker is currently calculating a path
         {
             seeker.StartPath(RB2D.position, player.transform.position, OnPathComplete);

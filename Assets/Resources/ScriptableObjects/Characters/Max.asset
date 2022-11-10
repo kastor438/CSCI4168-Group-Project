@@ -20,6 +20,6 @@ MonoBehaviour:
   characterWeight: 87
   meleeAttackSpeedMultiplier: 0
   rangedAttackSpeedMultiplier: 0
-  oxygenConsumptionRate: 4
+  oxygenConsumptionRate: 0.5
   maxCarryWeight: 120
   suffersFromRecoil: 0

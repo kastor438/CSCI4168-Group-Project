@@ -8,11 +8,13 @@ public class UserInterface : MonoBehaviour
     // All Canvases will be here.
     public PauseMenuCanvas pauseMenuCanvas;
     public InventoryCanvas inventoryCanvas;
+    public InGameUICanvas inGameUICanvas;
 
     public void Start()
     {
         pauseMenuCanvas.gameObject.SetActive(false);
         inventoryCanvas.gameObject.SetActive(false);
+        inGameUICanvas.gameObject.SetActive(true);
     }
 
     public void Update()

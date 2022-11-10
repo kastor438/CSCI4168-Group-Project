@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Maria
   characterPrefab: {fileID: 0}
-  characterSprite: {fileID: 0}
+  characterSprite: {fileID: 1867430650, guid: 7a124dfff1c4e964b91a1258d46c7d53, type: 3}
   maxHealth: 40
   characterSpeed: 5
   characterWeight: 35
   meleeAttackSpeedMultiplier: 0
   rangedAttackSpeedMultiplier: 0
-  oxygenConsumptionRate: 2
+  oxygenConsumptionRate: 0.3
   maxCarryWeight: 20
   suffersFromRecoil: 1

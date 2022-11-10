@@ -61,6 +61,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerDownHa
         }
         else
         {
+            itemQuantity = 0;
             itemImage.sprite = null;
             itemImage.color = Color.clear;
             quantityText.text = "";
@@ -80,13 +81,39 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerDownHa
             }
             else if(item.itemType == ItemType.Consumable)
             {
-                
-                itemQuantity--;
-                if (itemQuantity <= 0)
+                Consumable consumable = (Consumable)item;
+
+                if (consumable.effectedStat == EffectedStat.Health)
                 {
-                    item = null;
+                    GameManager.Instance.player.GetComponent<PlayerStats>().HealthEffect(consumable.effectValue);
+                    itemQuantity--;
+                    if (itemQuantity <= 0)
+                    {
+                        item = null;
+                    }
+                    DisplayItemInfo();
                 }
-                DisplayItemInfo();
+                else if (consumable.effectedStat == EffectedStat.Oxygen)
+                {
+                    int usableOxygen = (int)Mathf.Clamp(consumable.effectValue * itemQuantity, 1, 100 - (int)GameManager.Instance.player.GetComponent<PlayerStats>().oxygenLevel);
+                    GameManager.Instance.player.GetComponent<PlayerStats>().OxygenEffect(usableOxygen);
+                    itemQuantity -= usableOxygen;
+                    if (itemQuantity <= 0)
+                    {
+                        item = null;
+                    }
+                    DisplayItemInfo();
+                }
+                else if (consumable.effectedStat == EffectedStat.Speed)
+                {
+                    GameManager.Instance.player.GetComponent<PlayerStats>().SpeedEffect(consumable.effectValue, consumable.effectTime);
+                    itemQuantity--;
+                    if (itemQuantity <= 0)
+                    {
+                        item = null;
+                    }
+                    DisplayItemInfo();
+                }
             }
         }
     }

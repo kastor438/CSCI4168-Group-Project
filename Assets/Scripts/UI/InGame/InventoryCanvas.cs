@@ -28,8 +28,14 @@ public class InventoryCanvas : MonoBehaviour
         {
             CanvasScaler scaler = GetComponentInParent<CanvasScaler>();
             Vector2 mousePos = GameManager.Instance.playerInput.actions["MousePosition"].ReadValue<Vector2>();
-            Debug.Log(scaler.referenceResolution);
-            itemPopup.GetComponent<RectTransform>().anchoredPosition = new Vector2((mousePos.x * scaler.referenceResolution.x / Screen.width)-Screen.width*1f, (mousePos.y * scaler.referenceResolution.y / Screen.height) - Screen.height * 1.1f);
+            if (mousePos.x > Screen.width * 0.66f)
+            {
+                itemPopup.GetComponent<RectTransform>().anchoredPosition = new Vector2((mousePos.x * scaler.referenceResolution.x / Screen.width) - itemPopup.GetComponent<RectTransform>().sizeDelta.x*0.8f, (mousePos.y * scaler.referenceResolution.y / Screen.height));
+            }
+            else
+            {
+                itemPopup.GetComponent<RectTransform>().anchoredPosition = new Vector2((mousePos.x * scaler.referenceResolution.x / Screen.width) + itemPopup.GetComponent<RectTransform>().sizeDelta.x * 0.45f, (mousePos.y * scaler.referenceResolution.y / Screen.height));
+            }
         }
     }
 

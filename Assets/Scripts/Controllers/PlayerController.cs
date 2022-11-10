@@ -14,15 +14,9 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 forwardVector;
     public float characterSpeed;
-    
-    public bool lookingUp { get; private set; }
-    public bool lookingDown { get; private set; }
-    public bool lookingRight { get; private set; }
-    public bool lookingLeft { get; private set; }
 
     void Start()
     {
-        lookingDown = true;
         if(characterSpeed == 0)
         {
             characterSpeed = 4;
@@ -31,6 +25,11 @@ public class PlayerController : MonoBehaviour
         playerInput = GameManager.Instance.playerInput;
         RB2D = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+
+        forwardVector = Vector2.down;
+        playerAnimator.SetFloat("Horizontal", 0);
+        playerAnimator.SetFloat("Vertical", -1);
+        playerAnimator.SetFloat("Speed", 0);
     }
 
     // Update is called once per frame
@@ -40,6 +39,7 @@ public class PlayerController : MonoBehaviour
             !GameManager.Instance.playerInput.currentActionMap.name.Equals("InGamePlayer"))
         {
             movementInput = Vector3.zero;
+            playerAnimator.SetFloat("Speed", (movementInput.sqrMagnitude));
             return;
         }
             
@@ -52,10 +52,6 @@ public class PlayerController : MonoBehaviour
         {
             if (movementInput.y > 0)
             {
-                lookingUp = true;
-                lookingDown = false;
-                lookingRight = false;
-                lookingLeft = false;
                 forwardVector = Vector2.up;
                 playerAnimator.SetFloat("LookingUp", 1);
                 playerAnimator.SetFloat("LookingDown", 0);
@@ -64,10 +60,6 @@ public class PlayerController : MonoBehaviour
             }
             else if (movementInput.y < 0)
             {
-                lookingUp = false;
-                lookingDown = true;
-                lookingRight = false;
-                lookingLeft = false;
                 forwardVector = Vector2.down;
                 playerAnimator.SetFloat("LookingUp", 0);
                 playerAnimator.SetFloat("LookingDown", 1);
@@ -76,10 +68,6 @@ public class PlayerController : MonoBehaviour
             }
             else if (movementInput.x > 0)
             {
-                lookingUp = false;
-                lookingDown = false;
-                lookingRight = true;
-                lookingLeft = false;
                 forwardVector = Vector2.right;
                 playerAnimator.SetFloat("LookingUp", 0);
                 playerAnimator.SetFloat("LookingDown", 0);
@@ -88,10 +76,6 @@ public class PlayerController : MonoBehaviour
             }
             else if (movementInput.x < 0)
             {
-                lookingUp = false;
-                lookingDown = false;
-                lookingRight = false;
-                lookingLeft = true;
                 forwardVector = Vector2.left;
                 playerAnimator.SetFloat("LookingUp", 0);
                 playerAnimator.SetFloat("LookingDown", 0);
