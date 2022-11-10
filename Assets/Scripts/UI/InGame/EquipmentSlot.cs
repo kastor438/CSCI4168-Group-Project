@@ -59,6 +59,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
             GameManager.Instance.playerInput.actions["RightClick"].WasPerformedThisFrame() &&
             equipment != null && usable)
         {
+            Destroy(GameManager.Instance.player.GetComponentInChildren<PlayerWeaponController>().transform.GetChild(0).gameObject);
             (bool, int) AddedRemainder = GameManager.Instance.inventoryManager.AddItem(equipment, 1);
             if (!AddedRemainder.Item1)
             {
