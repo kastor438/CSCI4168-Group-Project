@@ -8,7 +8,7 @@ public class ProjectileController : MonoBehaviour
     private Vector3 direction;
     private float spawnTime;
     private float projectileLifetime;
-
+    private RangedWeapon rangedWeapon;
     void Update()
     {
         if(Time.unscaledTime > spawnTime + projectileLifetime)
@@ -18,13 +18,14 @@ public class ProjectileController : MonoBehaviour
         RB2D.velocity *= 0.999f;
     }
     
-    public void SetProjectileInfo(Vector3 direction, float projectileSpeed, float projectileLifetime)
+    public void SetProjectileInfo(Vector3 direction, RangedWeapon rangedWeapon)
     {
+        this.rangedWeapon = rangedWeapon;
         RB2D = GetComponent<Rigidbody2D>();
         spawnTime = Time.unscaledTime;
         this.direction = direction;
-        this.projectileLifetime = projectileLifetime;
-        RB2D.velocity = direction * projectileSpeed;
+        this.projectileLifetime = rangedWeapon.projectileLifetime;
+        RB2D.velocity = direction * rangedWeapon.projectileSpeed;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -33,6 +34,10 @@ public class ProjectileController : MonoBehaviour
         if (!collision.CompareTag("Player") && !collision.CompareTag("PlayerBody") && !collision.CompareTag("FriendlyProjectile") && !collision.CompareTag("EnemyProjectile"))
         {
             Destroy(gameObject);
+        }
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<EnemyStats>().TakeDamage(rangedWeapon.damage);
         }
     }
 }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b66f169c753d874cacdad8dec53cf11, type: 3}
+  m_Name: Maria
+  m_EditorClassIdentifier: 
+  characterName: Maria
+  characterPrefab: {fileID: 0}
+  characterSprite: {fileID: 1867430650, guid: 7a124dfff1c4e964b91a1258d46c7d53, type: 3}
+  maxHealth: 40
+  characterSpeed: 5
+  characterWeight: 35
+  meleeAttackSpeedMultiplier: 0
+  rangedAttackSpeedMultiplier: 0
+  oxygenConsumptionRate: 0.3
+  maxCarryWeight: 20
+  suffersFromRecoil: 1

@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     public void SetupCharacterStats(CharacterClass characterClass)
     {
         this.characterClass = characterClass;
-        player.GetComponent<PlayerController>().characterSpeed = characterClass.characterSpeed;
-        player.GetComponent<PlayerStats>().SetCharacterStats(characterClass.characterName, characterClass.maxHealth);
+        player.GetComponent<PlayerStats>().SetCharacterStats(characterClass);
+        userInterface.inGameUICanvas.UISetup();
     }
 }
