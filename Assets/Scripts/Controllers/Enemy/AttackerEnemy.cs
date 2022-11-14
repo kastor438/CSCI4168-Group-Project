@@ -3,31 +3,55 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class EnemyController : MonoBehaviour
+public class AttackerEnemy : EnemyController
 {
-    private GameObject player;
-    public float speed = 100f;
-    public float nextWaypointDistance = 1f;
-
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
+    
+    public float chaseRange;
+    public float attackRange;
 
+    public float nextWaypointDistance = 1f;
     Seeker seeker;
-    Rigidbody2D RB2D;
+    
     // Start is called before the first frame update
-    void Start() {
-        player = GameManager.Instance.player;
+    public override void Start()
+    {
+        base.Start();
         seeker = GetComponent<Seeker>();
-        RB2D = GetComponent<Rigidbody2D>();
 
         //Specifies a method to be repeated
         InvokeRepeating("UpdatePath", 0f, .5f);
-
-        if (speed == 0) 
+        
+    if (chaseRange == 0) 
         {
-            speed = 100f;
+            chaseRange = 5f;
         }
+    if (attackRange == 0) 
+        {
+            attackRange = 2f;
+        }
+    }
+
+    bool isInChaseRange() 
+    {
+        float distanceFromPlayer = Vector2.Distance(RB2D.position, player.transform.position);
+        if (distanceFromPlayer <= chaseRange)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    bool isInAttackRange() 
+    {
+        float distanceFromPlayer = Vector2.Distance(RB2D.position, player.transform.position);
+        if (distanceFromPlayer <= attackRange)
+        {
+            return true;
+        }
+        return false;
     }
 
     //Called when path is complete
@@ -51,7 +75,23 @@ public class EnemyController : MonoBehaviour
     }
 
 //Called a fixed number of time per seconds to properly work with physics
-    void FixedUpdate() {
+    public override void FixedUpdate() 
+    {
+        if (isInAttackRange())
+        {
+            Attack();
+        } else if (isInChaseRange())
+        {
+            Chase();
+        } else
+        {
+            Patrol();
+        }
+
+    }
+
+    void Chase() 
+    {
         if (path == null) 
         {
             return;
@@ -80,6 +120,9 @@ public class EnemyController : MonoBehaviour
         {
             currentWaypoint++;
         }
+    }
 
+    public virtual void Attack() {
+        Debug.Log("Attack");
     }
 }
