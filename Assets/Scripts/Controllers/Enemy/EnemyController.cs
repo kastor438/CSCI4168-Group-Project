@@ -27,11 +27,13 @@ public class EnemyController : MonoBehaviour
 
     public virtual void Patrol() 
     {
+        Debug.Log(patrolPath[currentPatrolPoint]);
         if (Vector3.Distance(transform.position, patrolPath[currentPatrolPoint].position) > .01f)
         {
             Vector3 goalVector = Vector3.MoveTowards(transform.position, patrolPath[currentPatrolPoint].position, speed/50 * Time.deltaTime);
             RB2D.MovePosition(goalVector);
-        } else
+        }
+        else
         {
             MoveGoal();
         }
@@ -40,7 +42,7 @@ public class EnemyController : MonoBehaviour
 
     public void MoveGoal()
     {
-         if (currentPatrolPoint == patrolPath.Length - 1)
+        if (currentPatrolPoint == patrolPath.Length - 1)
         {
             currentPatrolPoint = 0;
             currentGoal = patrolPath[0];
