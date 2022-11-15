@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     public void Update()
     {
         if (!GameManager.Instance || !GameManager.Instance.player || !GameManager.Instance.playerInput || 
-            !GameManager.Instance.playerInput.currentActionMap.name.Equals("InGamePlayer"))
+            (!GameManager.Instance.playerInput.currentActionMap.name.Equals("InGamePlayer") && !GameManager.Instance.playerInput.currentActionMap.name.Equals("ActiveDialog")))
         {
             movementInput = Vector3.zero;
             playerAnimator.SetFloat("Speed", (movementInput.sqrMagnitude));

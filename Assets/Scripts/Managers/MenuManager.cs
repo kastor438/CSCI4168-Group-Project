@@ -11,9 +11,14 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
+        /*if (GameManager.Instance)
+        {
+            GameManager.Instance.DestroyGameManager();
+        }*/
+        Time.timeScale = 1;
         if(Instance != null)
         {
-            Destroy(gameObject);
+            Destroy(Instance.gameObject);
         }
         Instance = this;
         DontDestroyOnLoad(Instance);
@@ -28,11 +33,7 @@ public class MenuManager : MonoBehaviour
     {
         AsyncOperation loadingScene = SceneManager.LoadSceneAsync("Test-Justin", LoadSceneMode.Single);
 
-        while (!loadingScene.isDone)
-        {
-            yield return new WaitForSeconds(0.1f);
-        }
-        while (!GameManager.Instance)
+        while (!loadingScene.isDone || GameManager.Instance == null)
         {
             yield return new WaitForSeconds(0.1f);
         }
