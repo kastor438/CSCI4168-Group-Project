@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementInput;
     private bool sufferingRecoil;
 
-    public Vector3 forwardVector;
+    internal Vector3 forwardVector;
     public float characterSpeed;
 
     void Start()

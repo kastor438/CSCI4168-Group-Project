@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2ab0c1d8b3849443a23c84312c4a555, type: 3}
-  m_Name: NPC
+  m_Name: Diana
   m_EditorClassIdentifier: 
-  npcDialog:
-  - 'Merp. Merp. Merp. Merp. Merp. Merp. Merp. Merp. Merp.\nMerp. Merp. Merp. Merp.
-    Merp. Merp. Merp. Merp. Merp. Merp. '
-  - 'Merp. Merp. Merp. \nMerp. Merp. Merp. Merp. Merp. Merp. Merp. Merp. Merp. Merp.
-    Merp. Merp. Merp. Merp. Merp. Merp. Merp. '
+  npcName: Diana
+  hasDialog: 1
+  npcDialog: []
+  maxHealth: 15
+  characterSpeed: 6

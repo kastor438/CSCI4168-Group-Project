@@ -8,6 +8,7 @@ public class CharacterClass : ScriptableObject
     public string characterName;
     public GameObject characterPrefab;
     public Sprite characterSprite;
+    public Sprite characterHeadshot;
     public int maxHealth;
     public float characterSpeed;
     public float characterWeight;

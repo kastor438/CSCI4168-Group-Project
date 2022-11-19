@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     {
         this.characterClass = characterClass;
         player.GetComponent<PlayerStats>().SetCharacterStats(characterClass);
-        userInterface.inGameUICanvas.UISetup();
+        userInterface.inGameUICanvas.UISetup(characterClass);
         if (MenuManager.Instance)
         {
             Destroy(MenuManager.Instance.gameObject);

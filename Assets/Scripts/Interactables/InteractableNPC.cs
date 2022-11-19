@@ -9,7 +9,8 @@ public class InteractableNPC : Interactable
     public override void Update()
     {
         base.Update();
-        if (GameManager.Instance && GameManager.Instance.player && Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) > interactableRadius*1.5f)
+        if (GameManager.Instance && GameManager.Instance.player && 
+            Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) > interactableRadius*1.5f)
         {
             GameManager.Instance.userInterface.dialogCanvas.DisableDialog();
         }
@@ -18,7 +19,10 @@ public class InteractableNPC : Interactable
     public override void Interact()
     {
         base.Interact();
-        GameManager.Instance.userInterface.dialogCanvas.gameObject.SetActive(true);
-        GameManager.Instance.userInterface.dialogCanvas.EnableDialog(this);
+        if (npc.hasDialog && npc.npcDialog.Length > 0)
+        {
+            GameManager.Instance.userInterface.dialogCanvas.gameObject.SetActive(true);
+            GameManager.Instance.userInterface.dialogCanvas.EnableDialog(this);
+        }
     }
 }

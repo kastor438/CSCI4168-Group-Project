@@ -15,6 +15,7 @@ MonoBehaviour:
   characterName: Arnold
   characterPrefab: {fileID: 0}
   characterSprite: {fileID: 1619700592, guid: 8744d47056fc52943870e71edc489b88, type: 3}
+  characterHeadshot: {fileID: -657050918, guid: 8744d47056fc52943870e71edc489b88, type: 3}
   maxHealth: 112
   characterSpeed: 3
   characterWeight: 150
