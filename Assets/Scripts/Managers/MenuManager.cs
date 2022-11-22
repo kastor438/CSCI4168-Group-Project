@@ -27,7 +27,7 @@ public class MenuManager : MonoBehaviour
 
     public IEnumerator GameStartWait(CharacterClass characterClass)
     {
-        AsyncOperation loadingScene = SceneManager.LoadSceneAsync("Test-Justin", LoadSceneMode.Single);
+        AsyncOperation loadingScene = SceneManager.LoadSceneAsync("Level 1", LoadSceneMode.Single);
 
         while (!loadingScene.isDone || GameManager.Instance == null)
         {

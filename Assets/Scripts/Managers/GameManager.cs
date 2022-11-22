@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public InventoryManager inventoryManager { get; private set; }
     public EquipmentManager equipmentManager { get; private set; }
     public GameObject player;
+    public GameObject spawnPosition;
 
     public void Awake()
     {
@@ -36,8 +37,8 @@ public class GameManager : MonoBehaviour
 
     public void SetupCharacterStats(CharacterClass characterClass)
     {
-/*        player = Instantiate(characterClass.characterPrefab, Vector3.zero, Quaternion.identity);
-*/        this.characterClass = characterClass;
+        player = Instantiate(characterClass.characterPrefab, spawnPosition.transform.position, Quaternion.identity);
+        this.characterClass = characterClass;
         player.GetComponent<PlayerStats>().SetCharacterStats(characterClass);
         userInterface.inGameUICanvas.UISetup(characterClass);
         if (MenuManager.Instance)
