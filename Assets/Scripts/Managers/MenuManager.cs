@@ -11,10 +11,6 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
-        /*if (GameManager.Instance)
-        {
-            GameManager.Instance.DestroyGameManager();
-        }*/
         Time.timeScale = 1;
         if(Instance != null)
         {

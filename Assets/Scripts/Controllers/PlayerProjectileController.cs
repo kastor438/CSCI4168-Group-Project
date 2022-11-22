@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileController : MonoBehaviour
+public class PlayerProjectileController : MonoBehaviour
 {
     private Rigidbody2D RB2D;
     private Vector3 direction;
     private float spawnTime;
     private float projectileLifetime;
     private RangedWeapon rangedWeapon;
+
     void Update()
     {
         if(Time.unscaledTime > spawnTime + projectileLifetime)

@@ -8,4 +8,8 @@ public class Enemy : ScriptableObject
     public int damage;
     public int attackSpeed;
     public int speed;
+    public EnemyType enemyType;
+    public GameObject enemyAttack;
 }
+
+public enum EnemyType { Melee, Ranged }

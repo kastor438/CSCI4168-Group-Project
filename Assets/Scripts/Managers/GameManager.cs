@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour
 
     public void SetupCharacterStats(CharacterClass characterClass)
     {
-        this.characterClass = characterClass;
+/*        player = Instantiate(characterClass.characterPrefab, Vector3.zero, Quaternion.identity);
+*/        this.characterClass = characterClass;
         player.GetComponent<PlayerStats>().SetCharacterStats(characterClass);
         userInterface.inGameUICanvas.UISetup(characterClass);
         if (MenuManager.Instance)
