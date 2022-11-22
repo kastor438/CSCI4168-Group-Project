@@ -56,6 +56,7 @@ public class DialogCanvas : MonoBehaviour
         dialogPageText.text = $"{dialogIndex + 1}/{dialogArray.Length}";
         writingCoroutine = StartCoroutine(WriteNPCText());
         dialogBox.SetActive(true);
+        GameManager.Instance.playerInput.currentActionMap.Disable();
         GameManager.Instance.playerInput.SwitchCurrentActionMap("ActiveDialog");
     }
 

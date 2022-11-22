@@ -23,6 +23,9 @@ public class PlayerStats : CharacterStats
 
     public IEnumerator OxygenDepletion()
     {
+        if (!GameManager.Instance.characterClass)
+            yield break;
+
         yield return new WaitForSeconds(oxygenUsageInterval);
         if (oxygenLevel <= 0)
         {
