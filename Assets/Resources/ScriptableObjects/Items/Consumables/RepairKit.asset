@@ -17,7 +17,6 @@ MonoBehaviour:
   stackable: 0
   stackableAmount: 1
   itemType: 1
-  pickupPrefab: {fileID: 1234543741731144251, guid: 6fa0deb2b6c9d4646b66eb83b9431161, type: 3}
   effectedStat: 4
   effectValue: 1
   effectTime: 0

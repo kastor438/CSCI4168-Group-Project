@@ -59,7 +59,6 @@ public class UserInterface : MonoBehaviour
             // Check for inventory input
             if (GameManager.Instance.playerInput.actions["CloseInventory"].WasPerformedThisFrame())
             {
-                Debug.Log("Closing");
                 CloseInventory();
             }
         }
@@ -75,46 +74,33 @@ public class UserInterface : MonoBehaviour
 
     public void OpenPauseMenu()
     {
-        GameManager.Instance.playerInput.currentActionMap.Disable();
-        GameManager.Instance.playerInput.SwitchCurrentActionMap("PausedGame");
-        Debug.Log("Huh?");
-        pauseMenuCanvas.gameObject.SetActive(true);
         Time.timeScale = 0;
+        GameManager.Instance.playerInput.SwitchCurrentActionMap("PausedGame");
+        pauseMenuCanvas.gameObject.SetActive(true);
     }
 
     public void ClosePauseMenu()
     {
-        Time.timeScale = 1;
-        GameManager.Instance.playerInput.currentActionMap.Disable();
         if (activeDialog)
         {
             GameManager.Instance.playerInput.SwitchCurrentActionMap("ActiveDialog");
-            activeDialog = false;
         }
         else
         {
             GameManager.Instance.playerInput.SwitchCurrentActionMap(inventoryCanvas.gameObject.activeSelf ? "InventoryOpen" : "InGamePlayer");
         }
         pauseMenuCanvas.gameObject.SetActive(false);
-        
+        Time.timeScale = 1;
     }
 
     public void OpenInventory()
     {
-        Debug.Log(GameManager.Instance.playerInput.currentActionMap.name);
-        Debug.Log(GameManager.Instance.playerInput.currentActionMap.enabled);
-        GameManager.Instance.playerInput.currentActionMap.Disable();
-        Debug.Log(GameManager.Instance.playerInput.currentActionMap.name);
-        Debug.Log(GameManager.Instance.playerInput.currentActionMap.enabled);
         GameManager.Instance.playerInput.SwitchCurrentActionMap("InventoryOpen");
-        Debug.Log(GameManager.Instance.playerInput.currentActionMap.name);
-        Debug.Log(GameManager.Instance.playerInput.currentActionMap.enabled);
         inventoryCanvas.gameObject.SetActive(true);
     }
 
     public void CloseInventory()
     {
-        GameManager.Instance.playerInput.currentActionMap.Disable();
         GameManager.Instance.playerInput.SwitchCurrentActionMap("InGamePlayer");
         inventoryCanvas.gameObject.SetActive(false);
     }

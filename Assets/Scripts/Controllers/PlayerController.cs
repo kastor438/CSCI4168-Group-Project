@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour
         if (!GameManager.Instance || !GameManager.Instance.player || !GameManager.Instance.playerInput || 
             (!GameManager.Instance.playerInput.currentActionMap.name.Equals("InGamePlayer") && !GameManager.Instance.playerInput.currentActionMap.name.Equals("ActiveDialog")))
         {
-            Debug.Log("Should exit");
             movementInput = Vector3.zero;
             playerAnimator.SetFloat("Speed", (movementInput.sqrMagnitude));
             return;
@@ -46,8 +45,7 @@ public class PlayerController : MonoBehaviour
             
 
         movementInput = playerInput.actions["Movement"].ReadValue<Vector2>();
-/*        Debug.Log(gameObject.name + " " + movementInput + " " + playerInput.actions["Movement"].ReadValue<Vector2>() + " " + playerInput.gameObject.name);
-*/        playerAnimator.SetFloat("Horizontal", (movementInput.x));
+        playerAnimator.SetFloat("Horizontal", (movementInput.x));
         playerAnimator.SetFloat("Vertical", (movementInput.y));
         playerAnimator.SetFloat("Speed", (movementInput.sqrMagnitude));
         if (movementInput.magnitude > 0)

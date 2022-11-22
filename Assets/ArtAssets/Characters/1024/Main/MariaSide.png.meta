@@ -131,12 +131,12 @@ TextureImporter:
       name: MariaSide_0
       rect:
         serializedVersion: 2
-        x: 223
+        x: 0
         y: 2048
-        width: 547
-        height: 962
+        width: 1024
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,12 +152,12 @@ TextureImporter:
       name: MariaSide_1
       rect:
         serializedVersion: 2
-        x: 1246
+        x: 1024
         y: 2048
-        width: 548
-        height: 962
+        width: 1024
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,12 +173,12 @@ TextureImporter:
       name: MariaSide_2
       rect:
         serializedVersion: 2
-        x: 223
+        x: 0
         y: 1024
-        width: 547
-        height: 961
+        width: 1024
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: MariaSide_3
       rect:
         serializedVersion: 2
-        x: 1278
+        x: 1024
         y: 1024
-        width: 547
-        height: 961
+        width: 1024
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,12 +215,12 @@ TextureImporter:
       name: MariaSide_4
       rect:
         serializedVersion: 2
-        x: 254
+        x: 0
         y: 0
-        width: 548
-        height: 962
+        width: 1024
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,12 +236,12 @@ TextureImporter:
       name: MariaSide_5
       rect:
         serializedVersion: 2
-        x: 1278
+        x: 1024
         y: 0
-        width: 547
-        height: 962
+        width: 1024
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

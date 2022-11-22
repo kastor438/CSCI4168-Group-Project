@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Maria
   m_EditorClassIdentifier: 
   characterName: Maria
-  characterPrefab: {fileID: 5698194099186630856, guid: d0a1daa21bfb7124b907fcbffbd52311, type: 3}
+  characterPrefab: {fileID: 0}
   characterSprite: {fileID: 1867430650, guid: 7a124dfff1c4e964b91a1258d46c7d53, type: 3}
   characterHeadshot: {fileID: -7101348, guid: 7a124dfff1c4e964b91a1258d46c7d53, type: 3}
   maxHealth: 40

@@ -9,7 +9,7 @@ public class InteractableNPC : Interactable
     public override void Update()
     {
         base.Update();
-        if (interacted && GameManager.Instance && GameManager.Instance.player && 
+        if (GameManager.Instance && GameManager.Instance.player && 
             Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) > interactableRadius*1.5f)
         {
             GameManager.Instance.userInterface.dialogCanvas.DisableDialog();
