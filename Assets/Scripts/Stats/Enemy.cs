@@ -7,7 +7,7 @@ public class Enemy : ScriptableObject
     public int maxHealth;
     public int damage;
     public int attackSpeed;
-    public int speed;
+    public int movementSpeed;
     public EnemyType enemyType;
     public GameObject enemyAttack;
 }
