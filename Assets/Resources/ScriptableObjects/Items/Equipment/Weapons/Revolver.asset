@@ -17,6 +17,7 @@ MonoBehaviour:
   stackable: 0
   stackableAmount: 0
   itemType: 0
+  pickupPrefab: {fileID: 1234543741731144251, guid: 99c4940817f76684fa94604b564ba978, type: 3}
   durability: 12
   equipmentPrefab: {fileID: 5979047960907626235, guid: 9ec05aa24c8e98742bd65b68efc06877, type: 3}
   equipmentType: 0
