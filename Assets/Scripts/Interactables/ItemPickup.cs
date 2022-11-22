@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 
 public class ItemPickup : Interactable
 {
@@ -27,7 +26,7 @@ public class ItemPickup : Interactable
     public IEnumerator CollectItem()
     {
         int iteration = 1;
-        while (Vector3.Distance(GameManager.Instance.player.transform.position, transform.position) > 1f)
+        while (Vector3.Distance(GameManager.Instance.player.transform.position, transform.position) > 0.3f)
         {
             Vector2 normalVector = Vector3.Normalize(GameManager.Instance.player.transform.position - transform.position);
             itemRB2D.velocity += normalVector * collectionSpeed * iteration;
@@ -44,11 +43,5 @@ public class ItemPickup : Interactable
         {
             quantity = addedRemainder.Item2;
         }
-    }
-
-    internal void SetPickup(Item item, int quantity)
-    {
-        this.item = item;
-        this.quantity = quantity;
     }
 }

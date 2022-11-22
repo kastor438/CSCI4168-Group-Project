@@ -36,10 +36,8 @@ public class PlayerWeaponController : MonoBehaviour, IWeapon
         if (playerInput.actions["BaseAttack"].IsPressed() && !isAttacking)
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(playerInput.actions["MousePos"].ReadValue<Vector2>());
-            Debug.Log("Mouse: " + mousePos);
             mousePos.z = 0;
-            Vector3 direction = Vector3.Normalize(mousePos - GameManager.Instance.player.transform.position);
-            Debug.Log("Player: " + GameManager.Instance.player.transform.position);
+            Vector3 direction = Vector3.Normalize(mousePos - transform.position);
             if (thisWeapon.GetType() == typeof(RangedWeapon))
             {
                 GameObject newProjectile = Instantiate(((RangedWeapon)thisWeapon).projectilePrefab, transform.position + direction, Quaternion.identity);
@@ -47,8 +45,8 @@ public class PlayerWeaponController : MonoBehaviour, IWeapon
                 {
                     GetComponentInParent<PlayerController>().RangedRecoil(-direction, ((RangedWeapon)thisWeapon).recoilAcceleration);
                 }
-                Debug.Log("direcvtion: " + direction);
-                newProjectile.GetComponent<PlayerProjectileController>().SetProjectileInfo(direction, ((RangedWeapon)thisWeapon));
+                
+                newProjectile.GetComponent<ProjectileController>().SetProjectileInfo(direction, ((RangedWeapon)thisWeapon));
                 spawnedProjectiles.Add(newProjectile);
             }
             StartCoroutine(PerformAttack());

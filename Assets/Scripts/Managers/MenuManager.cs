@@ -11,6 +11,10 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
+        /*if (GameManager.Instance)
+        {
+            GameManager.Instance.DestroyGameManager();
+        }*/
         Time.timeScale = 1;
         if(Instance != null)
         {
@@ -27,7 +31,7 @@ public class MenuManager : MonoBehaviour
 
     public IEnumerator GameStartWait(CharacterClass characterClass)
     {
-        AsyncOperation loadingScene = SceneManager.LoadSceneAsync("Level 1", LoadSceneMode.Single);
+        AsyncOperation loadingScene = SceneManager.LoadSceneAsync("Test-Justin", LoadSceneMode.Single);
 
         while (!loadingScene.isDone || GameManager.Instance == null)
         {

@@ -120,10 +120,8 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerDownHa
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log(GameManager.Instance.playerInput.actions["LeftClick"].WasPerformedThisFrame() + " " + !GameManager.Instance.inventoryManager.movingItem + " " + item);
         if (GameManager.Instance.playerInput.actions["LeftClick"].WasPerformedThisFrame() && !GameManager.Instance.inventoryManager.movingItem && item)
         {
-            Debug.Log("Huh?");
             GameManager.Instance.inventoryManager.movingItem = true;
             GameManager.Instance.inventoryManager.pickedUpSlot = this;
             GameManager.Instance.userInterface.inventoryCanvas.DisplayDragItemPopup(item, itemQuantity);
