@@ -14,8 +14,7 @@ public class PauseMenuCanvas : MonoBehaviour
 
     public void ReturnToMenuOnClick()
     {
-        Time.timeScale = 0;
-        Destroy(GameManager.Instance.gameObject);
+        GameManager.Instance.DestroyGameManager();
         SceneManager.LoadSceneAsync("_MainMenu");
     }
 }

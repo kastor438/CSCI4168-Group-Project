@@ -58,7 +58,7 @@ public class PlayerStats : CharacterStats
     {
         this.characterName = characterClass.characterName;
         this.maxHealth = characterClass.maxHealth;
-        this.currHealth = characterClass.maxHealth - 20;
+        this.currHealth = characterClass.maxHealth;
         this.playerSpeed = characterClass.characterSpeed;
         GetComponent<PlayerController>().characterSpeed = playerSpeed;
     }

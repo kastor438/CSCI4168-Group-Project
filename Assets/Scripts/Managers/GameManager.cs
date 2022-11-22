@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     {
         if(Instance != null)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
         Instance = this;
         DontDestroyOnLoad(Instance);
@@ -28,10 +28,20 @@ public class GameManager : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
     }
 
+    internal void DestroyGameManager()
+    {
+        Instance = null;
+        Destroy(gameObject);
+    }
+
     public void SetupCharacterStats(CharacterClass characterClass)
     {
         this.characterClass = characterClass;
         player.GetComponent<PlayerStats>().SetCharacterStats(characterClass);
-        userInterface.inGameUICanvas.UISetup();
+        userInterface.inGameUICanvas.UISetup(characterClass);
+        if (MenuManager.Instance)
+        {
+            Destroy(MenuManager.Instance.gameObject);
+        }
     }
 }

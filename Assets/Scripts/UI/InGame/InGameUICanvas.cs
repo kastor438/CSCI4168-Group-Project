@@ -7,13 +7,15 @@ public class InGameUICanvas : MonoBehaviour
 {
     public Slider healthBar;
     public Slider oxygenBar;
+    public Image characterImage;
 
-    public void UISetup()
+    public void UISetup(CharacterClass characterClass)
     {
-        healthBar.maxValue = GameManager.Instance.characterClass.maxHealth;
-        healthBar.value = GameManager.Instance.characterClass.maxHealth;
+        healthBar.maxValue = characterClass.maxHealth;
+        healthBar.value = characterClass.maxHealth;
         oxygenBar.maxValue = 100;
         oxygenBar.value = 100;
+        characterImage.sprite = characterClass.characterHeadshot;
     }
 
     // Update is called once per frame

@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableNPC : MonoBehaviour
+public class InteractableNPC : Interactable
 {
-    // Start is called before the first frame update
-    void Start()
+    public NPC npc;
+
+    public override void Update()
     {
-        
+        base.Update();
+        if (GameManager.Instance && GameManager.Instance.player && 
+            Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) > interactableRadius*1.5f)
+        {
+            GameManager.Instance.userInterface.dialogCanvas.DisableDialog();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Interact()
     {
-        
+        base.Interact();
+        if (npc.hasDialog && npc.npcDialog.Length > 0)
+        {
+            GameManager.Instance.userInterface.dialogCanvas.gameObject.SetActive(true);
+            GameManager.Instance.userInterface.dialogCanvas.EnableDialog(this);
+        }
     }
 }

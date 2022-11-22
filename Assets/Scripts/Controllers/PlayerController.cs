@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementInput;
     private bool sufferingRecoil;
 
-    public Vector3 forwardVector;
+    internal Vector3 forwardVector;
     public float characterSpeed;
 
     void Start()
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     public void Update()
     {
         if (!GameManager.Instance || !GameManager.Instance.player || !GameManager.Instance.playerInput || 
-            !GameManager.Instance.playerInput.currentActionMap.name.Equals("InGamePlayer"))
+            (!GameManager.Instance.playerInput.currentActionMap.name.Equals("InGamePlayer") && !GameManager.Instance.playerInput.currentActionMap.name.Equals("ActiveDialog")))
         {
             movementInput = Vector3.zero;
             playerAnimator.SetFloat("Speed", (movementInput.sqrMagnitude));

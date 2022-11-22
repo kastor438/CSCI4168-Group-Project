@@ -12,4 +12,4 @@ public class Consumable : Item
     public float effectTime;
 }
 
-public enum EffectedStat { Health, Oxygen, Speed, Damage }
+public enum EffectedStat { Health, Oxygen, Speed, Damage, Misc }
