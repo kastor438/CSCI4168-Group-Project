@@ -62,6 +62,7 @@ public class Breakable : MonoBehaviour
     public IEnumerator BreakItBro()
     {
         breakableAnimator.SetTrigger("Break");
+
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
