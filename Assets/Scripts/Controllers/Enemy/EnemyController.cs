@@ -5,10 +5,11 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public GameObject player;
-    public float speed = 100f;
+    public float speed;
     public Transform[] patrolPath;
     public int currentPatrolPoint;
     public Transform currentGoal;
+    public int collisionDamage = 5;
 
     public Rigidbody2D RB2D;
     
@@ -27,10 +28,9 @@ public class EnemyController : MonoBehaviour
 
     public virtual void Patrol() 
     {
-        Debug.Log(patrolPath[currentPatrolPoint]);
-        if (Vector3.Distance(transform.position, patrolPath[currentPatrolPoint].position) > .01f)
+        if (Vector3.Distance(transform.position, patrolPath[currentPatrolPoint].position) > .5f)
         {
-            Vector3 goalVector = Vector3.MoveTowards(transform.position, patrolPath[currentPatrolPoint].position, speed/50 * Time.deltaTime);
+            Vector3 goalVector = Vector3.MoveTowards(transform.position, patrolPath[currentPatrolPoint].position, speed * Time.deltaTime);
             RB2D.MovePosition(goalVector);
         }
         else
@@ -57,5 +57,14 @@ public class EnemyController : MonoBehaviour
     public virtual void FixedUpdate()
     {
         Patrol();
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Debug.Log("collided with " + collision.name);
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<CharacterStats>().TakeDamage(collisionDamage);
+        }
     }
 }

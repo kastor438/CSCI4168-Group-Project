@@ -55,7 +55,8 @@ public class Breakable : MonoBehaviour
         {
             GameObject pickupItem = Instantiate(itemsToDrop[i].pickupPrefab, transform.position, Quaternion.identity);
             pickupItem.GetComponent<ItemPickup>().SetPickup(itemsToDrop[i], quantities[i]);
-        }
+/*            pickupItem.GetComponent<Rigidbody2D>().AddForce
+*/        }
     }
 
     public IEnumerator BreakItBro()
