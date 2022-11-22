@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
-    private Rigidbody2D RB2D;
-    private Vector3 direction;
-    private float spawnTime;
-    private float projectileLifetime;
-    private RangedWeapon rangedWeapon;
+    public Rigidbody2D RB2D;
+    public Vector3 direction;
+    public float spawnTime;
+    public float projectileLifetime;
+    public RangedWeapon rangedWeapon;
     void Update()
     {
         if(Time.unscaledTime > spawnTime + projectileLifetime)
@@ -18,7 +18,7 @@ public class ProjectileController : MonoBehaviour
         RB2D.velocity *= 0.999f;
     }
     
-    public void SetProjectileInfo(Vector3 direction, RangedWeapon rangedWeapon)
+    public virtual void SetProjectileInfo(Vector3 direction, RangedWeapon rangedWeapon)
     {
         this.rangedWeapon = rangedWeapon;
         RB2D = GetComponent<Rigidbody2D>();
