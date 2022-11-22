@@ -14,6 +14,6 @@ public class MeleeEnemy : AttackerEnemy
     // Update is called once per frame
 
     public override void Attack() {
-        Debug.Log("Melee Attack");
+        
     }
 }

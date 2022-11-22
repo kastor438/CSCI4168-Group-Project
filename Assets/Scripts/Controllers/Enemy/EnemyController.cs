@@ -27,8 +27,7 @@ public class EnemyController : MonoBehaviour
 
     public virtual void Patrol() 
     {
-        Debug.Log(patrolPath[currentPatrolPoint]);
-        if (Vector3.Distance(transform.position, patrolPath[currentPatrolPoint].position) > .01f)
+        if (Vector3.Distance(transform.position, patrolPath[currentPatrolPoint].position) > .5f)
         {
             Vector3 goalVector = Vector3.MoveTowards(transform.position, patrolPath[currentPatrolPoint].position, speed/50 * Time.deltaTime);
             RB2D.MovePosition(goalVector);
@@ -57,5 +56,14 @@ public class EnemyController : MonoBehaviour
     public virtual void FixedUpdate()
     {
         Patrol();
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("collided with " + collision.name);
+        if (collision.CompareTag("Player"))
+        {
+            //collision.GetComponent<CharacterStats>().TakeDamage(1);
+        }
     }
 }
