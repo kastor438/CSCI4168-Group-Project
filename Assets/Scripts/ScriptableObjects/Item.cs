@@ -9,5 +9,6 @@ public class Item : ScriptableObject
     public bool stackable;
     public int stackableAmount;
     public ItemType itemType;
+    public GameObject pickupPrefab;
 }
 public enum ItemType { Equipment, Consumable, Collectable }
