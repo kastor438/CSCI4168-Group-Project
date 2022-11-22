@@ -19,14 +19,14 @@ public class PlayerProjectileController : MonoBehaviour
         RB2D.velocity *= 0.999f;
     }
     
-    public void SetProjectileInfo(Vector3 direction, RangedWeapon rangedWeapon)
+    public virtual void SetProjectileInfo(Vector3 direction, RangedWeapon rangedWeapon)
     {
         this.rangedWeapon = rangedWeapon;
         RB2D = GetComponent<Rigidbody2D>();
         spawnTime = Time.unscaledTime;
         this.direction = direction;
         this.projectileLifetime = rangedWeapon.projectileLifetime;
-        RB2D.velocity = direction * rangedWeapon.projectileSpeed;
+        RB2D.velocity = this.direction * rangedWeapon.projectileSpeed;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

@@ -16,6 +16,8 @@ public class PlayerStats : CharacterStats
 
     public override void Start()
     {
+        maxHealth = maxHealth==0 ? 50 : maxHealth;
+        currHealth = maxHealth;
         oxygenLevel = 100;
         oxygenUsageInterval = 3f;
         StartCoroutine(OxygenDepletion());
