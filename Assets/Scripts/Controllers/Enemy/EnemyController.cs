@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     public Transform[] patrolPath;
     public int currentPatrolPoint;
     public Transform currentGoal;
+    public int collisionDamage = 5;
 
     public Rigidbody2D RB2D;
     
@@ -63,7 +64,7 @@ public class EnemyController : MonoBehaviour
         Debug.Log("collided with " + collision.name);
         if (collision.CompareTag("Player"))
         {
-            //collision.GetComponent<CharacterStats>().TakeDamage(1);
+            collision.GetComponent<CharacterStats>().TakeDamage(collisionDamage);
         }
     }
 }
