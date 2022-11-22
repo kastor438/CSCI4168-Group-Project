@@ -24,7 +24,6 @@ public class PlayerStats : CharacterStats
     public IEnumerator OxygenDepletion()
     {
         yield return new WaitForSeconds(oxygenUsageInterval);
-        oxygenLevel = Mathf.Clamp(oxygenLevel - GameManager.Instance.characterClass.oxygenConsumptionRate, 0, 100);
         if (oxygenLevel <= 0)
         {
             GameManager.Instance.userInterface.inGameUICanvas.UpdateUI(this);
