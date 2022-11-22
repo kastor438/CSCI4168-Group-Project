@@ -136,8 +136,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9643cee5c3bc0ed4ba938a70ab789793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RB2D: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
-  spawnTime: 0
-  projectileLifetime: 0
-  rangedWeapon: {fileID: 0}
+  speed: 5

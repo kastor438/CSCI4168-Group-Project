@@ -107,10 +107,9 @@ public class AttackerEnemy : EnemyController
         }
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - RB2D.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime; //Force applied to the enemy to make it move
 
-        //Adds force to the enemy
-        RB2D.AddForce(force);
+        //Adds velocity to the enemy
+        RB2D.velocity = direction * speed;
 
         //Distance from next waypoint
         float distance = Vector2.Distance(RB2D.position, path.vectorPath[currentWaypoint]);
