@@ -430,7 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableRadius: 1.66
   npc: {fileID: 11400000, guid: eb466026de6704140904d756b7575864, type: 2}
-  interactCanvasPopup: {fileID: 0}
+  interactCanvasPopup: {fileID: 5640081368163293214}
 --- !u!95 &4232004070368866800
 Animator:
   serializedVersion: 4
