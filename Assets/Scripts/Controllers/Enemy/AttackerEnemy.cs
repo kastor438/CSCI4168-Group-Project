@@ -19,6 +19,7 @@ public class AttackerEnemy : EnemyController
     public override void Start()
     {
         base.Start();
+        
         seeker = GetComponent<Seeker>();
 
         //Specifies a method to be repeated
@@ -110,6 +111,9 @@ public class AttackerEnemy : EnemyController
 
         //Adds velocity to the enemy
         RB2D.velocity = direction * speed;
+
+        enemyAnimator.SetFloat("Speed", direction.sqrMagnitude);
+        enemyAnimator.SetFloat("Vertical", direction.y > 0 ? 1 : -1);
 
         //Distance from next waypoint
         float distance = Vector2.Distance(RB2D.position, path.vectorPath[currentWaypoint]);
