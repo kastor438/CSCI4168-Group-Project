@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    internal Animator enemyAnimator;
+
     public GameObject player;
     public float speed;
     public Transform[] patrolPath;
@@ -16,6 +18,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     public virtual void Start() 
     {
+        enemyAnimator = GetComponent<Animator>();
         player = GameManager.Instance.player;
         RB2D = GetComponent<Rigidbody2D>();
 

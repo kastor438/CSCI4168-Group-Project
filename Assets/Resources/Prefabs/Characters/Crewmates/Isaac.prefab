@@ -388,7 +388,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1635802005, guid: 3d3da9bb113ab254bbfa68a25d56fc32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableRadius: 1.66
   npc: {fileID: 11400000, guid: eb466026de6704140904d756b7575864, type: 2}
-  interactCanvasPopup: {fileID: 0}
+  interactCanvasPopup: {fileID: 5640081368163293214}
 --- !u!95 &4232004070368866800
 Animator:
   serializedVersion: 4
@@ -441,7 +441,7 @@ Animator:
   m_GameObject: {fileID: 7004873527044471509}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ab8f0153b119eac4d9a23af5a9e6872e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
