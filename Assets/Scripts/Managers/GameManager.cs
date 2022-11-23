@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(MenuManager.Instance.gameObject);
         }
+        Camera.main.GetComponent<CinemachineController>().SetFollow(player);
     }
 
     public void NextLevel()
