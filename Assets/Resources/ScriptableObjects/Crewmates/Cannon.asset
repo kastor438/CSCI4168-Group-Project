@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Cannon
   hasDialog: 1
-  npcDialog:
-  - wefwefwefwefwefwef\n.feefjoiwehofhweouiwef
-  - wefeww efwefwef\ndfffff.
+  npcDialog: []
   maxHealth: 65
   characterSpeed: 3
