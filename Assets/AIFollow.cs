@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class AIFollow : MonoBehaviour
 {
+    public GameObject Player;
     public Transform target;
     NavMeshAgent nav;
 
@@ -16,6 +17,8 @@ public class AIFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Player = GameObject.FindWithTag("Player");
+        target = Player.transform;
         nav.SetDestination(target.position);
     }
 }

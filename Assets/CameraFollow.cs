@@ -14,14 +14,9 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         vcam = GetComponent<CinemachineVirtualCamera>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Player == null)
+        if (Player == null)
         {
-            Player = GameObject.FindWithTag("Player");
+            Player = GameManager.Instance.player;
         }
         else
         {
