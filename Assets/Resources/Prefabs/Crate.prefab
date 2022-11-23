@@ -104,10 +104,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 74dbe338ea5843344bd540c6fb58cb6e, type: 2}
   - {fileID: 11400000, guid: b00d7646a53382947a5b3b3b0cc2c713, type: 2}
   - {fileID: 11400000, guid: ee745c785a9a2cf45a0eec9f50631b6c, type: 2}
-  minItemQuantities: 010000000100000022000000
-  maxItemQuantities: 010000000100000048000000
-  minDropItems: 1
-  maxDropItems: 2
+  - {fileID: 11400000, guid: a09f55f56f828244d8519b0f016c58fc, type: 2}
+  - {fileID: 11400000, guid: 7b4044813eeabad449689f365ea34534, type: 2}
+  - {fileID: 11400000, guid: ee745c785a9a2cf45a0eec9f50631b6c, type: 2}
+  minItemQuantities: 01000000010000002200000001000000010000001c000000
+  maxItemQuantities: 010000000100000048000000010000000100000063000000
+  minDropItems: 2
+  maxDropItems: 4
 --- !u!95 &7533917666047424922
 Animator:
   serializedVersion: 4
