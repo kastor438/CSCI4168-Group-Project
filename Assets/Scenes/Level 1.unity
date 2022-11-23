@@ -9604,6 +9604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
@@ -9661,6 +9662,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1292786299}
   - component: {fileID: 1292786298}
+  - component: {fileID: 1292786300}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -9722,6 +9724,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1292786300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292786297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5c44f160eeb7a408e02c8b1ede8406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  FollowTarget: {fileID: 0}
 --- !u!1001 &1369911089
 PrefabInstance:
   m_ObjectHideFlags: 0
