@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 4469430823430250760}
   - component: {fileID: 6991282109079752320}
   - component: {fileID: 267072395845063607}
-  - component: {fileID: 8191858979740788340}
+  - component: {fileID: 1868136275956011209}
   m_Layer: 0
-  m_Name: BlueBatProjectile
-  m_TagString: FriendlyProjectile
+  m_Name: PinkMonsterProjectile
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,7 +124,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8191858979740788340
+--- !u!114 &1868136275956011209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,4 +136,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9643cee5c3bc0ed4ba938a70ab789793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 5
