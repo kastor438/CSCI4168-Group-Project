@@ -5,9 +5,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class GameManager : MonoBehaviour
 {
+    private Coroutine levelSetupCoroutine;
+    private VideoPlayer cutscenePlayer;
     public static GameManager Instance { get; private set; }
     public PlayerInput playerInput { get; private set; }
     public CharacterClass characterClass;
@@ -16,6 +19,8 @@ public class GameManager : MonoBehaviour
     public EquipmentManager equipmentManager { get; private set; }
     public GameObject player;
     public GameObject spawnPosition;
+    public bool playerInteracting;
+
 
     public void Awake()
     {
@@ -40,6 +45,8 @@ public class GameManager : MonoBehaviour
 
     public void SetupCharacterStats(CharacterClass characterClass)
     {
+        playerInput.SwitchCurrentActionMap("Loading");
+        userInterface.userInterfaceSetup();
         this.characterClass = characterClass;
         player = Instantiate(characterClass.characterPrefab, spawnPosition.transform.position, Quaternion.identity);
         player.GetComponent<PlayerStats>().SetCharacterStats(characterClass);
@@ -49,6 +56,32 @@ public class GameManager : MonoBehaviour
             Destroy(MenuManager.Instance.gameObject);
         }
         Camera.main.GetComponent<CinemachineController>().SetFollow(player);
+        levelSetupCoroutine = StartCoroutine(StartGameSetup());
+    }
+
+    public IEnumerator StartGameSetup()
+    {
+        cutscenePlayer = GameObject.Find("VideoPlayer").GetComponent<VideoPlayer>();
+        userInterface.loadingCanvas.gameObject.SetActive(false);
+        userInterface.cutsceneCanvas.cutSceneDialogBox.SetActive(false);
+        userInterface.cutsceneCanvas.gameObject.SetActive(true);
+        cutscenePlayer.Play();
+        yield return new WaitForSeconds((float)cutscenePlayer.length/cutscenePlayer.playbackSpeed);
+        userInterface.cutsceneCanvas.EnableNarrativeDialog("CryoSleep");
+    }
+
+    public void EndCutscene()
+    {
+        if (levelSetupCoroutine != null)
+        {
+            StopCoroutine(levelSetupCoroutine);
+            levelSetupCoroutine = null;
+        }
+        if (cutscenePlayer)
+        {
+            cutscenePlayer.Stop();
+            cutscenePlayer = null;
+        }
     }
 
     public void NextLevel()
@@ -70,5 +103,8 @@ public class GameManager : MonoBehaviour
         spawnPosition = GameObject.Find("SpawnPosition");
 
         player = Instantiate(characterClass.characterPrefab, spawnPosition.transform.position, Quaternion.identity);
+        /*VideoPlayer cutscenePlayer = GameObject.Find("VideoPlayer").GetComponent<VideoPlayer>();
+        cutscenePlayer.Play();
+        yield return new WaitForSeconds((float)cutscenePlayer.length);*/
     }
 }

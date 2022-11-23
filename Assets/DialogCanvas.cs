@@ -82,7 +82,7 @@ public class DialogCanvas : MonoBehaviour
         {
             if (currentDialog.Length >= 2 && currentDialog.Substring(0, 2).Equals("\\n"))
             {
-                currentlyWritten += "\n\n";
+                currentlyWritten += "\n";
                 dialogText.text = currentlyWritten;
                 currentDialog = currentDialog[2..];
             }
@@ -104,7 +104,7 @@ public class DialogCanvas : MonoBehaviour
         {
             if (currentDialog.Length >= 2 && currentDialog.Substring(0, 2).Equals("\\n"))
             {
-                currentlyWritten += "\n\n";
+                currentlyWritten += "\n";
                 dialogText.text = currentlyWritten;
                 currentDialog = currentDialog[2..];
             }

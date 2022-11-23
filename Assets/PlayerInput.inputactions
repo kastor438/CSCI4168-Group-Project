@@ -497,6 +497,65 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Loading",
+            "id": "9348903a-6553-4397-a55a-9ad4eab112a7",
+            "actions": [
+                {
+                    "name": "ExitCutscene",
+                    "type": "Button",
+                    "id": "d40f59b8-1ab3-4b52-89d3-bbb044592733",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "NextDialog",
+                    "type": "Button",
+                    "id": "b6b11ba9-13a7-48ef-ada1-9feb3339dacc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4ccce3a3-3d65-41c0-9681-d7e35733d1db",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExitCutscene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "402c1a0d-0825-4d1f-bf37-530d606b7b29",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "187f9629-765e-4c9f-b37c-85518f6dc133",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

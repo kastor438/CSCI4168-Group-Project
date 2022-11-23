@@ -49,7 +49,7 @@ public class Breakable : MonoBehaviour
                 potentialItems.Remove(nextItem);
             }
 
-        } while (itemsToDrop.Count < numberOfDroppedItems);
+        } while (itemsToDrop.Count < numberOfDroppedItems && potentialItems.Count > 0);
 
         for(int i = 0; i < itemsToDrop.Count; i++)
         {

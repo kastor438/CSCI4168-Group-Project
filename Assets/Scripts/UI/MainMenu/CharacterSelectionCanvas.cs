@@ -34,6 +34,6 @@ public class CharacterSelectionCanvas : MonoBehaviour
             characterSlots.Add(newCharacterSlot);
         }
         RectTransform contentRect = characterSlotsParent.GetComponent<RectTransform>();
-        contentRect.sizeDelta = new Vector2(((characterOptions.Count-1) * 1270) + ((characterOptions.Count-1) * 50), contentRect.sizeDelta.y);
+        contentRect.sizeDelta = new Vector2(((characterOptions.Count) * 750) + ((characterOptions.Count-1) * 50), contentRect.sizeDelta.y);
     }
 }

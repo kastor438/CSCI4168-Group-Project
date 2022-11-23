@@ -50,6 +50,8 @@ MonoBehaviour:
   characterClass: {fileID: 0}
   userInterface: {fileID: 0}
   player: {fileID: 0}
+  spawnPosition: {fileID: 0}
+  playerInteracting: 0
 --- !u!114 &5967629325134884904
 MonoBehaviour:
   m_ObjectHideFlags: 0
