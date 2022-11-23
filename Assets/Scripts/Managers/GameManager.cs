@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     internal void DestroyGameManager()
     {
         Instance = null;
+        Destroy(userInterface.gameObject);
         Destroy(gameObject);
     }
 
@@ -46,5 +48,26 @@ public class GameManager : MonoBehaviour
         {
             Destroy(MenuManager.Instance.gameObject);
         }
+    }
+
+    public void NextLevel()
+    {
+        StartCoroutine(WaitNextLevel());
+    }
+
+    public IEnumerator WaitNextLevel()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        int.TryParse(sceneName.Substring(6), out int levelNumber);
+        levelNumber++;
+        AsyncOperation loadedLevel =  SceneManager.LoadSceneAsync("Level " + levelNumber, LoadSceneMode.Single);
+
+        while (!loadedLevel.isDone)
+        {
+            yield return new WaitForSeconds(0.05f);
+        }
+        spawnPosition = GameObject.Find("SpawnPosition");
+
+        player = Instantiate(characterClass.characterPrefab, spawnPosition.transform.position, Quaternion.identity);
     }
 }

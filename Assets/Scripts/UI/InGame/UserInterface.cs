@@ -15,6 +15,7 @@ public class UserInterface : MonoBehaviour
 
     public void Start()
     {
+        DontDestroyOnLoad(gameObject);
         pauseMenuCanvas.gameObject.SetActive(false);
         inventoryCanvas.gameObject.SetActive(false);
         dialogCanvas.gameObject.SetActive(false);
