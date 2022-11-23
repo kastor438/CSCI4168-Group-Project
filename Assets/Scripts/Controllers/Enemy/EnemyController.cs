@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
 
         if (speed == 0) 
         {
-            speed = 100f;
+            speed = 3f;
         }
 
     }
