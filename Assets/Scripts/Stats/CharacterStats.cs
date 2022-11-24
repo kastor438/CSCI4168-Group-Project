@@ -13,7 +13,7 @@ public abstract class CharacterStats : MonoBehaviour
         currHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         currHealth = Mathf.Clamp(currHealth - damage, 0, maxHealth);
         Coroutine gotHitRoutine = StartCoroutine(GotHit());

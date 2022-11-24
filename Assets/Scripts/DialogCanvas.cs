@@ -6,13 +6,23 @@ using Pathfinding;
 
 public class DialogCanvas : MonoBehaviour
 {
-    private InteractableNPC interactableNPC;
+    internal InteractableNPC interactableNPC;
     private int dialogIndex;
     private string[] dialogArray;
     private Coroutine writingCoroutine;
     public GameObject dialogBox;
     public TextMeshProUGUI dialogText;
     public TextMeshProUGUI dialogPageText;
+
+    public string[] GetDialogArray()
+    {
+        return dialogArray;
+    }
+
+    public int GetDialogIndex()
+    {
+        return dialogIndex;
+    }
 
     public void Update()
     {

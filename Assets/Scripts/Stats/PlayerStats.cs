@@ -23,6 +23,12 @@ public class PlayerStats : CharacterStats
         StartCoroutine(OxygenDepletion());
     }
 
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        GameManager.Instance.userInterface.inGameUICanvas.UpdateUI(this);
+    }
+
     public IEnumerator OxygenDepletion()
     {
         yield return new WaitForSeconds(oxygenUsageInterval);

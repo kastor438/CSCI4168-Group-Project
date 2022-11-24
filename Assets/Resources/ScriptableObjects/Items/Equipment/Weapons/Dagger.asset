@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dagger
   m_EditorClassIdentifier: 
   itemName: Dagger
-  inventorySprite: {fileID: 21300000, guid: f4141b04be1b5424dbc92b0b1a53c710, type: 3}
+  inventorySprite: {fileID: 21300000, guid: 85da4f6de30ce174a80814185ba5ec7a, type: 3}
   stackable: 0
   stackableAmount: 0
   itemType: 0
