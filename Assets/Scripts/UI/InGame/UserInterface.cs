@@ -12,13 +12,28 @@ public class UserInterface : MonoBehaviour
     public InventoryCanvas inventoryCanvas;
     public InGameUICanvas inGameUICanvas;
     public DialogCanvas dialogCanvas;
+    public LoadingCanvas loadingCanvas;
+    public CutsceneCanvas cutsceneCanvas;
 
-    public void Start()
+    public void userInterfaceSetup()
     {
+        DontDestroyOnLoad(gameObject);
+        loadingCanvas.gameObject.SetActive(true);
+        cutsceneCanvas.gameObject.SetActive(false);
         pauseMenuCanvas.gameObject.SetActive(false);
         inventoryCanvas.gameObject.SetActive(false);
         dialogCanvas.gameObject.SetActive(false);
-        inGameUICanvas.gameObject.SetActive(true);
+        inGameUICanvas.gameObject.SetActive(false);
+    }
+
+    public void DisableAllCanvases()
+    {
+        loadingCanvas.gameObject.SetActive(false);
+        cutsceneCanvas.gameObject.SetActive(false);
+        pauseMenuCanvas.gameObject.SetActive(false);
+        inventoryCanvas.gameObject.SetActive(false);
+        dialogCanvas.gameObject.SetActive(false);
+        inGameUICanvas.gameObject.SetActive(false);
     }
 
     public void Update()

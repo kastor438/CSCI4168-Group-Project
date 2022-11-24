@@ -8,7 +8,7 @@ public class Interactable : MonoBehaviour
 
     public float interactableRadius;
     
-    void Start()
+    public virtual void Start()
     {
         interacted = false;
     }

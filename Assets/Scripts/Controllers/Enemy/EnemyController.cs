@@ -4,33 +4,39 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public GameObject player;
-    public float speed = 100f;
+    internal Animator enemyAnimator;
+
+    internal GameObject player;
+    public float speed;
     public Transform[] patrolPath;
     public int currentPatrolPoint;
     public Transform currentGoal;
+    public int collisionDamage = 5;
 
     public Rigidbody2D RB2D;
     
     // Start is called before the first frame update
     public virtual void Start() 
     {
+        enemyAnimator = GetComponent<Animator>();
         player = GameManager.Instance.player;
         RB2D = GetComponent<Rigidbody2D>();
+        speed = GetComponent<EnemyStats>().enemy.movementSpeed;
 
         if (speed == 0) 
         {
-            speed = 100f;
+            speed = 3f;
         }
 
     }
 
     public virtual void Patrol() 
     {
-        Debug.Log(patrolPath[currentPatrolPoint]);
-        if (Vector3.Distance(transform.position, patrolPath[currentPatrolPoint].position) > .01f)
+        if (Vector3.Distance(transform.position, patrolPath[currentPatrolPoint].position) > .5f)
         {
-            Vector3 goalVector = Vector3.MoveTowards(transform.position, patrolPath[currentPatrolPoint].position, speed/50 * Time.deltaTime);
+            Vector3 goalVector = Vector3.MoveTowards(transform.position, patrolPath[currentPatrolPoint].position, speed * Time.deltaTime);
+            enemyAnimator.SetFloat("Vertical", (patrolPath[currentPatrolPoint].position.y - transform.position.y) > 0 ? 1 : -1);
+            enemyAnimator.SetFloat("Velocity_Y", Vector3.Normalize(patrolPath[currentPatrolPoint].position - transform.position).y);
             RB2D.MovePosition(goalVector);
         }
         else
@@ -57,5 +63,14 @@ public class EnemyController : MonoBehaviour
     public virtual void FixedUpdate()
     {
         Patrol();
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Debug.Log("collided with " + collision.name);
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<CharacterStats>().TakeDamage(collisionDamage);
+        }
     }
 }

@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Isaac
   hasDialog: 1
-  npcDialog: []
+  npcDialog:
+  - AHHHHHH!!!!!!!!!!\nOh, you're human... Apologies for being so startled, thought
+    you we're one of those infesting creatures.
+  - YOU HAVEN'T SEEN THEM?! Oh you just awoke?\nWell would you kindly escort me to
+    an escape hatch, I really don't wanna die alone on this ship.
+  - Hmmm, let's get you a weapon shall we?
   maxHealth: 44
   characterSpeed: 5

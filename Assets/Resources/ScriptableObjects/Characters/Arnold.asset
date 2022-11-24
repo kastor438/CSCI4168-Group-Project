@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Arnold
   m_EditorClassIdentifier: 
   characterName: Arnold
-  characterPrefab: {fileID: 0}
+  characterPrefab: {fileID: 5698194099186630856, guid: fc4943b7d4faf794dafad5fd26469244, type: 3}
   characterSprite: {fileID: 1619700592, guid: 8744d47056fc52943870e71edc489b88, type: 3}
   characterHeadshot: {fileID: -657050918, guid: 8744d47056fc52943870e71edc489b88, type: 3}
   maxHealth: 112

@@ -46,7 +46,7 @@ public class PlayerWeaponController : MonoBehaviour, IWeapon
                     GetComponentInParent<PlayerController>().RangedRecoil(-direction, ((RangedWeapon)thisWeapon).recoilAcceleration);
                 }
                 
-                newProjectile.GetComponent<ProjectileController>().SetProjectileInfo(direction, ((RangedWeapon)thisWeapon));
+                newProjectile.GetComponent<PlayerProjectileController>().SetProjectileInfo(direction, ((RangedWeapon)thisWeapon));
                 spawnedProjectiles.Add(newProjectile);
             }
             StartCoroutine(PerformAttack());

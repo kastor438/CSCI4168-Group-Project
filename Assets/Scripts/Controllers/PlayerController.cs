@@ -45,42 +45,30 @@ public class PlayerController : MonoBehaviour
             
 
         movementInput = playerInput.actions["Movement"].ReadValue<Vector2>();
-        playerAnimator.SetFloat("Horizontal", (movementInput.x));
-        playerAnimator.SetFloat("Vertical", (movementInput.y));
+        if (movementInput.magnitude > 0)
+        {
+            playerAnimator.SetFloat("Horizontal", (movementInput.x));
+            playerAnimator.SetFloat("Vertical", (movementInput.y));
+        }
+        
         playerAnimator.SetFloat("Speed", (movementInput.sqrMagnitude));
         if (movementInput.magnitude > 0)
         {
             if (movementInput.y > 0)
             {
                 forwardVector = Vector2.up;
-                playerAnimator.SetFloat("LookingUp", 1);
-                playerAnimator.SetFloat("LookingDown", 0);
-                playerAnimator.SetFloat("LookingRight", 0);
-                playerAnimator.SetFloat("LookingLeft", 0);
             }
             else if (movementInput.y < 0)
             {
                 forwardVector = Vector2.down;
-                playerAnimator.SetFloat("LookingUp", 0);
-                playerAnimator.SetFloat("LookingDown", 1);
-                playerAnimator.SetFloat("LookingRight", 0);
-                playerAnimator.SetFloat("LookingLeft", 0);
             }
             else if (movementInput.x > 0)
             {
                 forwardVector = Vector2.right;
-                playerAnimator.SetFloat("LookingUp", 0);
-                playerAnimator.SetFloat("LookingDown", 0);
-                playerAnimator.SetFloat("LookingRight", 1);
-                playerAnimator.SetFloat("LookingLeft", 0);
             }
             else if (movementInput.x < 0)
             {
                 forwardVector = Vector2.left;
-                playerAnimator.SetFloat("LookingUp", 0);
-                playerAnimator.SetFloat("LookingDown", 0);
-                playerAnimator.SetFloat("LookingRight", 0);
-                playerAnimator.SetFloat("LookingLeft", 1);
             }
         }
     }
