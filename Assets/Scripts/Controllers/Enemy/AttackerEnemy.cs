@@ -19,19 +19,21 @@ public class AttackerEnemy : EnemyController
     public override void Start()
     {
         base.Start();
-        
+        attackRange = GetComponent<EnemyStats>().enemy.attackRange;
+        chaseRange = GetComponent<EnemyStats>().enemy.chaseRange;
         seeker = GetComponent<Seeker>();
 
         //Specifies a method to be repeated
         InvokeRepeating("UpdatePath", 0f, .5f);
         
-    if (chaseRange == 0) 
+
+        if (chaseRange == 0) 
         {
-            chaseRange = 5f;
+                chaseRange = 5f;
         }
-    if (attackRange == 0) 
+        if (attackRange == 0) 
         {
-            attackRange = 2f;
+                attackRange = 2f;
         }
     }
 
@@ -62,6 +64,14 @@ public class AttackerEnemy : EnemyController
         float distanceFromPlayer = Vector2.Distance(RB2D.position, player.transform.position);
         if (distanceFromPlayer <= attackRange)
         {
+            RB2D.velocity *= 0.96f;
+            if (RB2D.velocity.magnitude < 0.8f)
+            {
+                RB2D.velocity = Vector2.zero;
+            }
+
+            enemyAnimator.SetFloat("Velocity_Y", Vector3.Normalize(RB2D.velocity).y);
+            enemyAnimator.SetFloat("Vertical", (transform.position.y - player.transform.position.y) > 0 ? -1 : 1);
             return true;
         }
         return false;
@@ -97,7 +107,7 @@ public class AttackerEnemy : EnemyController
         else if (isInChaseRange())
         {
             Chase();
-            Debug.Log("Chase");
+            //Debug.Log("Chase");
         } 
         else
         {
@@ -127,7 +137,7 @@ public class AttackerEnemy : EnemyController
         //Adds velocity to the enemy
         RB2D.velocity = direction * speed;
 
-        enemyAnimator.SetFloat("Speed", direction.sqrMagnitude);
+        enemyAnimator.SetFloat("Velocity_Y", Vector3.Normalize(RB2D.velocity).y);
         enemyAnimator.SetFloat("Vertical", direction.y > 0 ? 1 : -1);
 
         //Distance from next waypoint
@@ -141,6 +151,14 @@ public class AttackerEnemy : EnemyController
     }
 
     public virtual void Attack() {
-        Debug.Log("Attack");
+        //Debug.Log("Attack");
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, chaseRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

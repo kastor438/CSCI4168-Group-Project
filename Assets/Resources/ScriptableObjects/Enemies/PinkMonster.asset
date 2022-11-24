@@ -15,6 +15,7 @@ MonoBehaviour:
   enemyName: Pinkie
   maxHealth: 50
   damage: 10
-  attackSpeed: 3
-  movementSpeed: 2
-  attackRange: 3
+  attackSpeed: 0.8
+  movementSpeed: 2.4
+  attackRange: 2
+  chaseRange: 6
