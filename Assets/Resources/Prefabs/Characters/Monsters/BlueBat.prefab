@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5154157102752546991}
   - component: {fileID: 5154157102752546989}
   - component: {fileID: 5154157102752546990}
+  - component: {fileID: 4852989359829830857}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: EnemyBody
@@ -95,12 +96,33 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.000000004222116, y: 0.03541768}
   m_Size: {x: 1.101808, y: 0.78343225}
   m_Direction: 1
+--- !u!50 &4852989359829830857
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154157102752546976}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5154157103292041303
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c3321cffe54e647884f5ce2f9209da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   speed: 0
   patrolPath:
   - {fileID: 0}
@@ -220,7 +241,6 @@ MonoBehaviour:
   chaseRange: 0
   attackRange: 0
   nextWaypointDistance: 1
-  timeShootingCooldown: 3
   projectile: {fileID: 7140290415042417248, guid: 86724403341e5f74f9a69f08135d9063, type: 3}
 --- !u!114 &5154157103292041301
 MonoBehaviour:

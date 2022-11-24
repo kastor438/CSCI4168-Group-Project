@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: -2661775298462980602}
   m_Layer: 0
   m_Name: Cannon
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,6 +301,7 @@ MonoBehaviour:
   interactableRadius: 1.66
   npc: {fileID: 11400000, guid: eb466026de6704140904d756b7575864, type: 2}
   interactCanvasPopup: {fileID: 4228713242376850503}
+  canInteract: 0
 --- !u!95 &4232004070368866800
 Animator:
   serializedVersion: 4

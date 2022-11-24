@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 3550841089190229233}
   m_Layer: 0
   m_Name: Isaac
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -435,6 +435,7 @@ MonoBehaviour:
   interactableRadius: 1.66
   npc: {fileID: 11400000, guid: 1162e5266d7c25d41806ea334ed0b192, type: 2}
   interactCanvasPopup: {fileID: 5640081368163293214}
+  canInteract: 0
 --- !u!95 &4232004070368866800
 Animator:
   serializedVersion: 4

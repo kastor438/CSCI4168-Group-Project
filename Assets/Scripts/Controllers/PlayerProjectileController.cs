@@ -27,18 +27,20 @@ public class PlayerProjectileController : MonoBehaviour
         this.direction = direction;
         this.projectileLifetime = rangedWeapon.projectileLifetime;
         RB2D.velocity = this.direction * rangedWeapon.projectileSpeed;
+        for(int i = 0; i < GameManager.Instance.followList.Count; i++)
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameManager.Instance.followList[i].GetComponent<Collider2D>());
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("collided with " + collision.name);
-        if (!collision.CompareTag("Player") && !collision.CompareTag("PlayerBody") && !collision.CompareTag("FriendlyProjectile") && !collision.CompareTag("EnemyProjectile"))
+        if (collision.CompareTag("EnemyBody"))
         {
+            collision.GetComponentInParent<EnemyStats>().TakeDamage(rangedWeapon.damage);
             Destroy(gameObject);
         }
-        if (collision.CompareTag("Enemy"))
-        {
-            collision.GetComponent<EnemyStats>().TakeDamage(rangedWeapon.damage);
-        }
+        Destroy(gameObject);
     }
 }

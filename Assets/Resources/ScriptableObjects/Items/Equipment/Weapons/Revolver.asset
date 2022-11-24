@@ -21,7 +21,7 @@ MonoBehaviour:
   durability: 12
   equipmentPrefab: {fileID: 5979047960907626235, guid: 9ec05aa24c8e98742bd65b68efc06877, type: 3}
   equipmentType: 0
-  damage: 14
+  damage: 8
   attackSpeed: 2
   hasSpecialAttack: 0
   isTwoHanded: 0
