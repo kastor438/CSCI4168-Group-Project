@@ -27,7 +27,7 @@ public class ShooterEnemy : AttackerEnemy
         {
             Instantiate(projectile, transform.position, Quaternion.identity);
             shootingCooldown = timeShootingCooldown;
-            Debug.Log("Shoot");
+            //Debug.Log("Shoot");
 
         } else {
             shootingCooldown -= Time.deltaTime;
