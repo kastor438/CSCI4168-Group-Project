@@ -78,7 +78,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &4409932257639239811
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
   chaseRange: 0
   attackRange: 0
   nextWaypointDistance: 1
-  timeShootingCooldown: 0
+  timeShootingCooldown: 3
   projectile: {fileID: 0}
 --- !u!114 &4409932257639239813
 MonoBehaviour:

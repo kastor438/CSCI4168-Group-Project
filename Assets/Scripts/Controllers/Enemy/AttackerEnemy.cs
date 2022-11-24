@@ -37,6 +37,12 @@ public class AttackerEnemy : EnemyController
 
     bool isInChaseRange() 
     {
+        if (!GameManager.Instance || !GameManager.Instance.player || !player)
+        {
+            player = GameManager.Instance.player;
+            return false;
+        }
+
         float distanceFromPlayer = Vector2.Distance(RB2D.position, player.transform.position);
         if (distanceFromPlayer <= chaseRange)
         {
@@ -47,6 +53,12 @@ public class AttackerEnemy : EnemyController
 
     bool isInAttackRange() 
     {
+        if (!GameManager.Instance || !GameManager.Instance.player || !player)
+        {
+            player = GameManager.Instance.player;
+            return false;
+        }
+
         float distanceFromPlayer = Vector2.Distance(RB2D.position, player.transform.position);
         if (distanceFromPlayer <= attackRange)
         {
@@ -78,19 +90,16 @@ public class AttackerEnemy : EnemyController
 //Called a fixed number of time per seconds to properly work with physics
     public override void FixedUpdate() 
     {
-        if (!GameManager.Instance || !GameManager.Instance.player || !player)
-        {
-            player = GameManager.Instance.player;
-            return;
-        }
-
         if (isInAttackRange())
         {
             Attack();
-        } else if (isInChaseRange())
+        } 
+        else if (isInChaseRange())
         {
             Chase();
-        } else
+            Debug.Log("Chase");
+        } 
+        else
         {
             Patrol();
         }

@@ -22,11 +22,12 @@ public class ShooterEnemy : AttackerEnemy
     }
 
     public override void Attack() {
+        Debug.Log("Attack");
         if (shootingCooldown <= 0) 
         {
             Instantiate(projectile, transform.position, Quaternion.identity);
             shootingCooldown = timeShootingCooldown;
-            Debug.Log("Instantiate should be running if you can read this");
+            Debug.Log("Shoot");
 
         } else {
             shootingCooldown -= Time.deltaTime;

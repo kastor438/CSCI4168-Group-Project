@@ -35,8 +35,8 @@ public class EnemyController : MonoBehaviour
         if (Vector3.Distance(transform.position, patrolPath[currentPatrolPoint].position) > .5f)
         {
             Vector3 goalVector = Vector3.MoveTowards(transform.position, patrolPath[currentPatrolPoint].position, speed * Time.deltaTime);
-            enemyAnimator.SetFloat("Speed", goalVector.sqrMagnitude);
-            enemyAnimator.SetFloat("Vertical", goalVector.y > 0 ? 1 : -1);
+            enemyAnimator.SetFloat("Vertical", (patrolPath[currentPatrolPoint].position.y - transform.position.y) > 0 ? 1 : -1);
+            enemyAnimator.SetFloat("Speed", Vector3.Normalize(goalVector).sqrMagnitude);
             RB2D.MovePosition(goalVector);
         }
         else
