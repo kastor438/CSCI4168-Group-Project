@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject spawnPosition;
     public bool playerInteracting;
-
+    public List<Transform> followList;
 
     public void Awake()
     {
@@ -45,11 +45,13 @@ public class GameManager : MonoBehaviour
 
     public void SetupCharacterStats(CharacterClass characterClass)
     {
+        followList = new List<Transform>();
         playerInput.SwitchCurrentActionMap("Loading");
         userInterface.userInterfaceSetup();
         this.characterClass = characterClass;
         player = Instantiate(characterClass.characterPrefab, spawnPosition.transform.position, Quaternion.identity);
         player.GetComponent<PlayerStats>().SetCharacterStats(characterClass);
+        followList.Add(player.transform);
         userInterface.inGameUICanvas.UISetup(characterClass);
         if (MenuManager.Instance)
         {

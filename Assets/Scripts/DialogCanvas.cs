@@ -19,7 +19,7 @@ public class DialogCanvas : MonoBehaviour
         if (!GameManager.Instance || !GameManager.Instance.playerInput || !GameManager.Instance.playerInput.currentActionMap.name.Equals("ActiveDialog"))
             return;
 
-        if (GameManager.Instance.playerInput.actions["NextDialog"].WasPerformedThisFrame() && interactableNPC)
+        if (GameManager.Instance.playerInput.actions["NextDialog"].WasPerformedThisFrame() && dialogBox.activeSelf)
         {
             if (dialogArray.Length > dialogIndex+1)
             {
@@ -64,7 +64,8 @@ public class DialogCanvas : MonoBehaviour
     {
         if (interactableNPC)
         {
-            interactableNPC.GetComponent<AIDestinationSetter>().target = GameManager.Instance.player.transform;
+            interactableNPC.GetComponent<AIDestinationSetter>().target = GameManager.Instance.followList[GameManager.Instance.followList.Count - 1];
+            GameManager.Instance.followList.Add(interactableNPC.transform);
             interactableNPC.interacted = false;
             interactableNPC = null;
         }

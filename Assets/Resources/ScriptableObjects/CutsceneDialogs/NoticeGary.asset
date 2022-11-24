@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 481c4fc0914f63248a044e7225a0812d, type: 3}
-  m_Name: BlueBat
+  m_Script: {fileID: 11500000, guid: 1774d5ffb276a9b4f818195508206177, type: 3}
+  m_Name: NoticeGary
   m_EditorClassIdentifier: 
-  enemyName: Blue Bat
-  maxHealth: 8
-  damage: 3
-  attackSpeed: 1
-  movementSpeed: 2
-  attackRange: 4
-  chaseRange: 7
+  dialogArray:
+  - COME AT ME YAH FLYING BLUE BALLS!

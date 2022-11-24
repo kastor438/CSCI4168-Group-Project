@@ -7,6 +7,7 @@ public class InteractableNPC : Interactable
     private bool followingPlayer;
     public NPC npc;
     public GameObject interactCanvasPopup;
+    public bool canInteract;
 
     public override void Start()
     {
@@ -20,7 +21,7 @@ public class InteractableNPC : Interactable
         if (followingPlayer)
             return;
 
-        if (GameManager.Instance && GameManager.Instance.player)
+        if (GameManager.Instance && GameManager.Instance.player && !followingPlayer && canInteract)
         {
             if(Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) < interactableRadius)
             {
@@ -37,17 +38,21 @@ public class InteractableNPC : Interactable
             Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) > interactableRadius*1.5f)
         {
             GameManager.Instance.userInterface.dialogCanvas.DisableDialog();
-            followingPlayer = true;
         }
     }
 
     public override void Interact()
     {
-        base.Interact();
-        if (npc.hasDialog && npc.npcDialog.Length > 0)
+        if (canInteract)
         {
-            GameManager.Instance.userInterface.dialogCanvas.gameObject.SetActive(true);
-            GameManager.Instance.userInterface.dialogCanvas.EnableDialog(this);
+            base.Interact();
+            if (npc.hasDialog && npc.npcDialog.Length > 0 && !followingPlayer)
+            {
+                GameManager.Instance.userInterface.dialogCanvas.gameObject.SetActive(true);
+                GameManager.Instance.userInterface.dialogCanvas.EnableDialog(this);
+            }
+            followingPlayer = true;
+            interactCanvasPopup.gameObject.SetActive(false);
         }
     }
 }

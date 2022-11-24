@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableRadius: 2
-  item: {fileID: 11400000, guid: 365e214237afec0479f6de7ca84bce67, type: 2}
+  item: {fileID: 11400000, guid: 7c88d3ee0fea3304d95996faf03007fa, type: 2}
   quantity: 1
 --- !u!50 &1234543741731144244
 Rigidbody2D:
