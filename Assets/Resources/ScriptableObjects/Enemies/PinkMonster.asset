@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PinkMonster
   m_EditorClassIdentifier: 
   enemyName: Pinkie
-  maxHealth: 50
-  damage: 10
+  maxHealth: 16
+  damage: 4
   attackSpeed: 0.8
   movementSpeed: 2.4
-  attackRange: 2
-  chaseRange: 6
+  attackRange: 1.8
+  chaseRange: 4
