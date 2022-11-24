@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator StartGameSetup()
     {
-        cutscenePlayer = GameObject.Find("VideoPlayer").GetComponent<VideoPlayer>();
+        cutscenePlayer = GameObject.Find("CryoSleepVideoPlayer").GetComponent<VideoPlayer>();
         userInterface.loadingCanvas.gameObject.SetActive(false);
         userInterface.cutsceneCanvas.cutSceneDialogBox.SetActive(false);
         userInterface.cutsceneCanvas.gameObject.SetActive(true);

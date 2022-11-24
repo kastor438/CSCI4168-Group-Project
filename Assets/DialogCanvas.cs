@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Pathfinding;
 
 public class DialogCanvas : MonoBehaviour
 {
@@ -63,6 +64,7 @@ public class DialogCanvas : MonoBehaviour
     {
         if (interactableNPC)
         {
+            interactableNPC.GetComponent<AIDestinationSetter>().target = GameManager.Instance.player.transform;
             interactableNPC.interacted = false;
             interactableNPC = null;
         }

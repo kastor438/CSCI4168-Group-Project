@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InteractableNPC : Interactable
 {
+    private bool followingPlayer;
     public NPC npc;
     public GameObject interactCanvasPopup;
 
@@ -16,6 +17,9 @@ public class InteractableNPC : Interactable
     public override void Update()
     {
         base.Update();
+        if (followingPlayer)
+            return;
+
         if (GameManager.Instance && GameManager.Instance.player)
         {
             if(Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) < interactableRadius)
@@ -33,6 +37,7 @@ public class InteractableNPC : Interactable
             Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) > interactableRadius*1.5f)
         {
             GameManager.Instance.userInterface.dialogCanvas.DisableDialog();
+            followingPlayer = true;
         }
     }
 

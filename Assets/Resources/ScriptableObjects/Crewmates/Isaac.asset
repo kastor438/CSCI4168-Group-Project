@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Isaac
   hasDialog: 1
-  npcDialog: []
+  npcDialog:
+  - asfasfsf\nasddashnodashn. asf ianf ai ias .\nsiaidhasib
+  - sdfsdfsdfsdfsdf\n\nsedfsdfsdfsdf asdfsdf.
   maxHealth: 44
   characterSpeed: 5
