@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: -2143683690, guid: ea51269cf5875334e9bbb276cd122f71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09198109fb3fbb45ac3f0106cbb8835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 11400000, guid: f76a118391d30d340beea436e3e0ced6, type: 2}
+  enemy: {fileID: 11400000, guid: c569a462fcb93a343896064f0576cfac, type: 2}
 --- !u!114 &2398729514175777108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,9 +249,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c3321cffe54e647884f5ce2f9209da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  speed: 2
+  speed: 6
   patrolPath:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   currentPatrolPoint: 0

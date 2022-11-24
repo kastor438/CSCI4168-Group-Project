@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     internal Animator enemyAnimator;
 
-    public GameObject player;
+    internal GameObject player;
     public float speed;
     public Transform[] patrolPath;
     public int currentPatrolPoint;
@@ -21,6 +21,7 @@ public class EnemyController : MonoBehaviour
         enemyAnimator = GetComponent<Animator>();
         player = GameManager.Instance.player;
         RB2D = GetComponent<Rigidbody2D>();
+        speed = GetComponent<EnemyStats>().enemy.movementSpeed;
 
         if (speed == 0) 
         {
@@ -34,6 +35,8 @@ public class EnemyController : MonoBehaviour
         if (Vector3.Distance(transform.position, patrolPath[currentPatrolPoint].position) > .5f)
         {
             Vector3 goalVector = Vector3.MoveTowards(transform.position, patrolPath[currentPatrolPoint].position, speed * Time.deltaTime);
+            enemyAnimator.SetFloat("Speed", goalVector.sqrMagnitude);
+            enemyAnimator.SetFloat("Vertical", goalVector.y > 0 ? 1 : -1);
             RB2D.MovePosition(goalVector);
         }
         else

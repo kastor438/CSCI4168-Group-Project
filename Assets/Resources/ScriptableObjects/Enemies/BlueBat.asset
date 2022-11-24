@@ -16,6 +16,5 @@ MonoBehaviour:
   maxHealth: 12
   damage: 4
   attackSpeed: 1
-  speed: 3
-  enemyType: 1
-  enemyAttack: {fileID: 0}
+  movementSpeed: 3
+  attackRange: 3

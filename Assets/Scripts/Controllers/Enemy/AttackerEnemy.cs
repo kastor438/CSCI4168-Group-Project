@@ -78,6 +78,12 @@ public class AttackerEnemy : EnemyController
 //Called a fixed number of time per seconds to properly work with physics
     public override void FixedUpdate() 
     {
+        if (!GameManager.Instance || !GameManager.Instance.player || !player)
+        {
+            player = GameManager.Instance.player;
+            return;
+        }
+
         if (isInAttackRange())
         {
             Attack();
