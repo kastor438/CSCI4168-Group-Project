@@ -84,6 +84,7 @@ public class AttackerEnemy : EnemyController
         } else if (isInChaseRange())
         {
             Chase();
+            Debug.Log("Chase");
         } else
         {
             Patrol();
