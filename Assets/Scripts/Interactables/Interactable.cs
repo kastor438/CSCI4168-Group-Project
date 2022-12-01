@@ -7,7 +7,7 @@ public class Interactable : MonoBehaviour
     internal bool interacted;
 
     public float interactableRadius;
-    
+    public Vector3 offset;
     public virtual void Start()
     {
         interacted = false;
@@ -21,7 +21,7 @@ public class Interactable : MonoBehaviour
 
         if (GameManager.Instance.playerInput.currentActionMap.name.Equals("InGamePlayer") && 
             GameManager.Instance.playerInput.actions["Interact"].WasPerformedThisFrame() && 
-            Vector3.Distance(GameManager.Instance.player.transform.position, transform.position) <= interactableRadius &&
+            Vector3.Distance(GameManager.Instance.player.transform.position, transform.position + offset) <= interactableRadius &&
             !interacted)
         {
             Interact();
@@ -37,6 +37,6 @@ public class Interactable : MonoBehaviour
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, interactableRadius);
+        Gizmos.DrawWireSphere(transform.position + offset, interactableRadius);
     }
 }
