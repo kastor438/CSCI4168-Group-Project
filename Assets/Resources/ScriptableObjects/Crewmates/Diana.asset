@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Diana
   hasDialog: 1
-  npcDialog: []
+  npcDialog:
+  - Do you mind if I join your team...
+  - I'm looking for my way home
   maxHealth: 15
   characterSpeed: 6

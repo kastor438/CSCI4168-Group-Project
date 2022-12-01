@@ -15,6 +15,7 @@ MonoBehaviour:
   npcName: GunnerGary
   hasDialog: 1
   npcDialog:
-  - Hi my name is Gunner Gary...\nI am whatever
+  - Hi my name is Gunner Gary...\nI can help you shoot
+  - I was once a solider and..\n I can be your safeguard
   maxHealth: 52
   characterSpeed: 3
