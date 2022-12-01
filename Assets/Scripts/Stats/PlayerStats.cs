@@ -53,12 +53,20 @@ public class PlayerStats : CharacterStats
     public override IEnumerator Death()
     {
         yield return new WaitForSeconds(0);
+        for (int i = 0; i < GameManager.Instance.followList.Count; i++)
+        {
+            Destroy(GameManager.Instance.followList[i]);
+        }
         Destroy(gameObject);
     }
 
     public IEnumerator OxygenDeath()
     {
         yield return new WaitForSeconds(0);
+        for (int i = 0; i < GameManager.Instance.followList.Count; i++)
+        {
+            Destroy(GameManager.Instance.followList[i]);
+        }
         Destroy(gameObject);
     }
 

@@ -14,6 +14,7 @@ public class UserInterface : MonoBehaviour
     public DialogCanvas dialogCanvas;
     public LoadingCanvas loadingCanvas;
     public CutsceneCanvas cutsceneCanvas;
+    public GameWonCanvas gameWonCanvas;
 
     public void userInterfaceSetup()
     {
@@ -24,6 +25,7 @@ public class UserInterface : MonoBehaviour
         inventoryCanvas.gameObject.SetActive(false);
         dialogCanvas.gameObject.SetActive(false);
         inGameUICanvas.gameObject.SetActive(false);
+        gameWonCanvas.gameObject.SetActive(false);
     }
 
     public void DisableAllCanvases()
@@ -34,6 +36,7 @@ public class UserInterface : MonoBehaviour
         inventoryCanvas.gameObject.SetActive(false);
         dialogCanvas.gameObject.SetActive(false);
         inGameUICanvas.gameObject.SetActive(false);
+        gameWonCanvas.gameObject.SetActive(false);
     }
 
     public void Update()

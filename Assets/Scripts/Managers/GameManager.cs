@@ -96,6 +96,9 @@ public class GameManager : MonoBehaviour
         string sceneName = SceneManager.GetActiveScene().name;
         int.TryParse(sceneName.Substring(6), out int levelNumber);
         levelNumber++;
+        for (int i = 0; i < followList.Count; i++){
+            DontDestroyOnLoad(followList[i]);
+        }
         AsyncOperation loadedLevel =  SceneManager.LoadSceneAsync("Level " + levelNumber, LoadSceneMode.Single);
 
         while (!loadedLevel.isDone)
