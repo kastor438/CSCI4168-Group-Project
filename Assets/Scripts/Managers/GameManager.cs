@@ -1,5 +1,4 @@
 ﻿using Cinemachine;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -93,6 +92,8 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator WaitNextLevel()
     {
+        playerInput.SwitchCurrentActionMap("Loading");
+        userInterface.loadingCanvas.gameObject.SetActive(true);
         string sceneName = SceneManager.GetActiveScene().name;
         int.TryParse(sceneName.Substring(6), out int levelNumber);
         levelNumber++;
@@ -107,7 +108,14 @@ public class GameManager : MonoBehaviour
         }
         spawnPosition = GameObject.Find("SpawnPosition");
 
-        player = Instantiate(characterClass.characterPrefab, spawnPosition.transform.position, Quaternion.identity);
+        player.transform.position = spawnPosition.transform.position;
+        for(int i = 1; i < followList.Count; i++)
+        {
+            followList[i].transform.position = player.transform.position + new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
+        }
+        Camera.main.GetComponent<CinemachineController>().SetFollow(player);
+        userInterface.loadingCanvas.gameObject.SetActive(false);
+        playerInput.SwitchCurrentActionMap("InGamePlayer");
         /*VideoPlayer cutscenePlayer = GameObject.Find("VideoPlayer").GetComponent<VideoPlayer>();
         cutscenePlayer.Play();
         yield return new WaitForSeconds((float)cutscenePlayer.length);*/
