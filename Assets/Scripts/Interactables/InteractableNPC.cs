@@ -23,7 +23,7 @@ public class InteractableNPC : Interactable
 
         if (GameManager.Instance && GameManager.Instance.player && !followingPlayer && canInteract)
         {
-            if(Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) < interactableRadius)
+            if(Vector3.Distance(transform.position + offset, GameManager.Instance.player.transform.position) < interactableRadius)
             {
                 interactCanvasPopup.gameObject.SetActive(true);
             }

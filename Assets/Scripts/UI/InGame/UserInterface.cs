@@ -15,6 +15,7 @@ public class UserInterface : MonoBehaviour
     public LoadingCanvas loadingCanvas;
     public CutsceneCanvas cutsceneCanvas;
     public GameWonCanvas gameWonCanvas;
+    public DeathCanvas deathCanvas;
 
     public void userInterfaceSetup()
     {
@@ -26,6 +27,7 @@ public class UserInterface : MonoBehaviour
         dialogCanvas.gameObject.SetActive(false);
         inGameUICanvas.gameObject.SetActive(false);
         gameWonCanvas.gameObject.SetActive(false);
+        deathCanvas.gameObject.SetActive(false);
     }
 
     public void DisableAllCanvases()
@@ -37,6 +39,7 @@ public class UserInterface : MonoBehaviour
         dialogCanvas.gameObject.SetActive(false);
         inGameUICanvas.gameObject.SetActive(false);
         gameWonCanvas.gameObject.SetActive(false);
+        deathCanvas.gameObject.SetActive(false);
     }
 
     public void Update()

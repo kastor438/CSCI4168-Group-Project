@@ -57,6 +57,8 @@ public class PlayerStats : CharacterStats
         {
             Destroy(GameManager.Instance.followList[i]);
         }
+        GameManager.Instance.userInterface.deathCanvas.gameObject.SetActive(true);
+        Time.timeScale = 0;
         Destroy(gameObject);
     }
 
@@ -67,6 +69,8 @@ public class PlayerStats : CharacterStats
         {
             Destroy(GameManager.Instance.followList[i]);
         }
+        GameManager.Instance.userInterface.deathCanvas.gameObject.SetActive(true);
+        Time.timeScale = 0;
         Destroy(gameObject);
     }
 
