@@ -18,3 +18,4 @@ MonoBehaviour:
   attackSpeed: 5
   movementSpeed: 3
   attackRange: 3
+  chaseRange: 6

@@ -2572,9 +2572,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2684709948141683833}
-        m_TargetAssemblyTypeName: PauseMenuCanvas, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 5180322728853363331}
+        m_TargetAssemblyTypeName: GameWonCanvas, Assembly-CSharp
+        m_MethodName: ReturnToMenuOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4393,7 +4393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8259410954125659850
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7374,7 +7374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2504817749062342473, guid: 4d0bf483ad6b43c4185cd24d2752795f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3680829247250105588, guid: 4d0bf483ad6b43c4185cd24d2752795f, type: 3}
       propertyPath: m_Type
@@ -7496,7 +7496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2504817749062342473, guid: 4d0bf483ad6b43c4185cd24d2752795f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3680829247250105588, guid: 4d0bf483ad6b43c4185cd24d2752795f, type: 3}
       propertyPath: m_Type
@@ -7996,7 +7996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2504817749062342473, guid: 4d0bf483ad6b43c4185cd24d2752795f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3680829247250105588, guid: 4d0bf483ad6b43c4185cd24d2752795f, type: 3}
       propertyPath: m_Type
@@ -8118,7 +8118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2504817749062342473, guid: 4d0bf483ad6b43c4185cd24d2752795f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3680829247250105588, guid: 4d0bf483ad6b43c4185cd24d2752795f, type: 3}
       propertyPath: m_Type
@@ -8362,7 +8362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2504817749062342473, guid: 4d0bf483ad6b43c4185cd24d2752795f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3680829247250105588, guid: 4d0bf483ad6b43c4185cd24d2752795f, type: 3}
       propertyPath: m_Type

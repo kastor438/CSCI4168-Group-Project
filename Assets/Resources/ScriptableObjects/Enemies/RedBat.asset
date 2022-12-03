@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: RedBat
   m_EditorClassIdentifier: 
   enemyName: Red Bat
-  maxHealth: 3
-  damage: 5
+  maxHealth: 5
+  damage: 6
   attackSpeed: 1
   movementSpeed: 3
-  attackRange: 3
-  chaseRange: 0
+  attackRange: 5
+  chaseRange: 8

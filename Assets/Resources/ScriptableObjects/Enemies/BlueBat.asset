@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BlueBat
   m_EditorClassIdentifier: 
   enemyName: Blue Bat
-  maxHealth: 8
-  damage: 3
-  attackSpeed: 1
-  movementSpeed: 2
+  maxHealth: 11
+  damage: 6
+  attackSpeed: 2
+  movementSpeed: 2.8
   attackRange: 4
   chaseRange: 7

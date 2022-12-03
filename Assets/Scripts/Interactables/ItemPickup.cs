@@ -15,7 +15,7 @@ public class ItemPickup : Interactable
         base.Start();
         if (!item.stackable)
             quantity = 1;
-        collectionSpeed = 0.001f;
+        collectionSpeed = 0.05f;
         itemRB2D = GetComponent<Rigidbody2D>();
     }
 
@@ -41,7 +41,7 @@ public class ItemPickup : Interactable
         while (Vector3.Distance(GameManager.Instance.player.transform.position, transform.position) > 0.3f)
         {
             Vector2 normalVector = Vector3.Normalize(GameManager.Instance.player.transform.position - transform.position);
-            itemRB2D.velocity += normalVector * collectionSpeed * iteration;
+            itemRB2D.velocity = normalVector * collectionSpeed * iteration;
             iteration++;
             yield return new WaitForEndOfFrame();
         }

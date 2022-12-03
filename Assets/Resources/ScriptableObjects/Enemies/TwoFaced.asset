@@ -16,5 +16,6 @@ MonoBehaviour:
   maxHealth: 30
   damage: 15
   attackSpeed: 1
-  movementSpeed: 3
-  attackRange: 3
+  movementSpeed: 4
+  attackRange: 2
+  chaseRange: 9
