@@ -30,6 +30,7 @@ public class EnemyController : MonoBehaviour
 
     }
 
+    //Patrolling function adapted from [1] 
     public virtual void Patrol() 
     {
         if (Vector3.Distance(transform.position, patrolPath[currentPatrolPoint].position) > .5f)
@@ -46,9 +47,10 @@ public class EnemyController : MonoBehaviour
         
     }
 
+    //Patrolling function adapted from [1] 
     public void MoveGoal()
     {
-        if (currentPatrolPoint == patrolPath.Length - 1)
+        if (currentPatrolPoint == patrolPath.Length - 1) //Checks if character is at the end of the array
         {
             currentPatrolPoint = 0;
             currentGoal = patrolPath[0];
@@ -67,7 +69,6 @@ public class EnemyController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("collided with " + collision.name);
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<CharacterStats>().TakeDamage(collisionDamage);
