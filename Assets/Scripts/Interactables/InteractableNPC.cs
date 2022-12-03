@@ -52,6 +52,7 @@ public class InteractableNPC : Interactable
                 GameManager.Instance.userInterface.dialogCanvas.EnableDialog(this);
             }
             followingPlayer = true;
+            gameObject.layer = LayerMask.NameToLayer("Non-collision");
             interactCanvasPopup.gameObject.SetActive(false);
         }
     }

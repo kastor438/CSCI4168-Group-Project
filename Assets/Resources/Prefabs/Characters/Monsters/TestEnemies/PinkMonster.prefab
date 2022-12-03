@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2398729513489665046}
   - component: {fileID: 2398729513489665044}
   - component: {fileID: 2398729513489665045}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,13 +116,13 @@ GameObject:
   - component: {fileID: 2398729514175777131}
   - component: {fileID: 2398729514175777108}
   - component: {fileID: 2398729514175777109}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PinkMonster
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2398729514175777135
 Transform:
   m_ObjectHideFlags: 0
@@ -253,6 +253,8 @@ MonoBehaviour:
   patrolPath:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentPatrolPoint: 0
   currentGoal: {fileID: 0}
   collisionDamage: 5
@@ -260,5 +262,4 @@ MonoBehaviour:
   chaseRange: 0
   attackRange: 0
   nextWaypointDistance: 1
-  timeShootingCooldown: 1
-  projectile: {fileID: 7220262887685890661, guid: f8527d3e7250ebc4882b9caa49c13459, type: 3}
+  projectile: {fileID: 2175221696689806407, guid: 6ea47ae54940605449b5d7fef4c100dd, type: 3}

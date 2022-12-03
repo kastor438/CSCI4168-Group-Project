@@ -5572,6 +5572,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7533917666047424925, guid: 0975682a10711714386c318dc91d7fda, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0975682a10711714386c318dc91d7fda, type: 3}
 --- !u!4 &102490358 stripped
@@ -16188,6 +16192,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7533917666047424925, guid: 0975682a10711714386c318dc91d7fda, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0975682a10711714386c318dc91d7fda, type: 3}
 --- !u!4 &249409105 stripped
@@ -16254,6 +16262,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7533917666047424925, guid: 0975682a10711714386c318dc91d7fda, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0975682a10711714386c318dc91d7fda, type: 3}
 --- !u!4 &273210181 stripped
@@ -16270,7 +16282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 289365444}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16355,6 +16367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7533917666047424925, guid: 0975682a10711714386c318dc91d7fda, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0975682a10711714386c318dc91d7fda, type: 3}
 --- !u!4 &333276002 stripped
@@ -16425,6 +16441,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7533917666047424925, guid: 0975682a10711714386c318dc91d7fda, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0975682a10711714386c318dc91d7fda, type: 3}
 --- !u!4 &341073870 stripped
@@ -16439,6 +16459,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2031823267}
     m_Modifications:
+    - target: {fileID: 1717910544696427686, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1717910545089823198, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -16495,6 +16519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PinkMonster (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1717910545089823207, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
 --- !u!4 &356679382 stripped
@@ -16509,6 +16537,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2031823267}
     m_Modifications:
+    - target: {fileID: 2398729514175777109, guid: 1a645812a57c4f247a14a1524171e3ec, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 2175221696689806407, guid: 6ea47ae54940605449b5d7fef4c100dd, type: 3}
     - target: {fileID: 2398729514175777109, guid: 1a645812a57c4f247a14a1524171e3ec, type: 3}
       propertyPath: patrolPath.Array.size
       value: 1
@@ -16581,7 +16613,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 415271248}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16682,12 +16714,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6432880816373708324, guid: e07b754943666da4e9400cd6edc19f3a, type: 3}
       propertyPath: patrolPath.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6432880816373708324, guid: e07b754943666da4e9400cd6edc19f3a, type: 3}
       propertyPath: patrolPath.Array.data[0]
       value: 
       objectReference: {fileID: 1806599111}
+    - target: {fileID: 6432880816373708324, guid: e07b754943666da4e9400cd6edc19f3a, type: 3}
+      propertyPath: patrolPath.Array.data[1]
+      value: 
+      objectReference: {fileID: 1138343849}
+    - target: {fileID: 6432880816373708324, guid: e07b754943666da4e9400cd6edc19f3a, type: 3}
+      propertyPath: patrolPath.Array.data[2]
+      value: 
+      objectReference: {fileID: 1138343849}
     - target: {fileID: 6432880816373708326, guid: e07b754943666da4e9400cd6edc19f3a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -16820,6 +16860,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2031823267}
     m_Modifications:
+    - target: {fileID: 2034345316, guid: e42e6f5f5b62f594da52babc3e44a4b6, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6043322587593361984, guid: e42e6f5f5b62f594da52babc3e44a4b6, type: 3}
       propertyPath: m_Name
       value: BlackCloak (1)
@@ -16890,6 +16934,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2031823267}
     m_Modifications:
+    - target: {fileID: 1717910544696427686, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1717910545089823198, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -16945,6 +16993,10 @@ PrefabInstance:
     - target: {fileID: 1717910545089823207, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
       propertyPath: m_Name
       value: PinkMonster (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717910545089823207, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
@@ -17073,6 +17125,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2031823267}
     m_Modifications:
+    - target: {fileID: 1717910544696427686, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1717910545089823198, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -17128,6 +17184,10 @@ PrefabInstance:
     - target: {fileID: 1717910545089823207, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
       propertyPath: m_Name
       value: PinkMonster (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717910545089823207, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
@@ -17324,7 +17384,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1806599111}
+  - {fileID: 1138343849}
   m_Father: {fileID: 1925686464}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17337,7 +17399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 617776916}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17368,7 +17430,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 643303882}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17397,6 +17459,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2031823267}
     m_Modifications:
+    - target: {fileID: 1717910544696427686, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1717910545089823198, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -17452,6 +17518,10 @@ PrefabInstance:
     - target: {fileID: 1717910545089823207, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
       propertyPath: m_Name
       value: PinkMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717910545089823207, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 638fac58a5b4a3647896c0a6dc0c6835, type: 3}
@@ -17523,6 +17593,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate
       objectReference: {fileID: 0}
+    - target: {fileID: 7533917666047424925, guid: 0975682a10711714386c318dc91d7fda, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0975682a10711714386c318dc91d7fda, type: 3}
 --- !u!4 &697782443 stripped
@@ -17593,6 +17667,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7533917666047424925, guid: 0975682a10711714386c318dc91d7fda, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0975682a10711714386c318dc91d7fda, type: 3}
 --- !u!4 &706209928 stripped
@@ -17609,7 +17687,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 859156892}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17638,6 +17716,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2031823267}
     m_Modifications:
+    - target: {fileID: 2398729514175777109, guid: 1a645812a57c4f247a14a1524171e3ec, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 2175221696689806407, guid: 6ea47ae54940605449b5d7fef4c100dd, type: 3}
     - target: {fileID: 2398729514175777109, guid: 1a645812a57c4f247a14a1524171e3ec, type: 3}
       propertyPath: patrolPath.Array.size
       value: 1
@@ -17710,7 +17792,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 944044088}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17783,10 +17865,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5795131940223461685, guid: 0bb0589669dcfa042aa25517a29709b9, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 11400000, guid: f32d80916cfb2d6479347ff529685f9a, type: 2}
     - target: {fileID: 5795131940223461689, guid: 0bb0589669dcfa042aa25517a29709b9, type: 3}
       propertyPath: m_Name
       value: RedBat
       objectReference: {fileID: 0}
+    - target: {fileID: 5795131940223461689, guid: 0bb0589669dcfa042aa25517a29709b9, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795131940223461690, guid: 0bb0589669dcfa042aa25517a29709b9, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 369558412175886926, guid: 17517df00ed21a5448cd6656e67f3346, type: 3}
     - target: {fileID: 5795131940223461690, guid: 0bb0589669dcfa042aa25517a29709b9, type: 3}
       propertyPath: patrolPath.Array.size
       value: 1
@@ -17795,6 +17889,10 @@ PrefabInstance:
       propertyPath: patrolPath.Array.data[0]
       value: 
       objectReference: {fileID: 1010189306}
+    - target: {fileID: 5795131941287087036, guid: 0bb0589669dcfa042aa25517a29709b9, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bb0589669dcfa042aa25517a29709b9, type: 3}
 --- !u!4 &984134886 stripped
@@ -17811,7 +17909,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1010189306}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17840,13 +17938,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 808170785671898728, guid: 3275dace1f0ed82468482bbe48c948ff, type: 3}
-      propertyPath: graphics
-      value: 
-      objectReference: {fileID: 1018958070}
+    - target: {fileID: 94849107, guid: 3275dace1f0ed82468482bbe48c948ff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 162440663, guid: 3275dace1f0ed82468482bbe48c948ff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171932965, guid: 3275dace1f0ed82468482bbe48c948ff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1867549359, guid: 3275dace1f0ed82468482bbe48c948ff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2024020465, guid: 3275dace1f0ed82468482bbe48c948ff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1868471377268024599, guid: 3275dace1f0ed82468482bbe48c948ff, type: 3}
       propertyPath: m_Name
       value: EscapePod
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868471377268024599, guid: 3275dace1f0ed82468482bbe48c948ff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572481810034216229, guid: 3275dace1f0ed82468482bbe48c948ff, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3872024415942731661, guid: 3275dace1f0ed82468482bbe48c948ff, type: 3}
       propertyPath: m_RootOrder
@@ -17894,11 +18016,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3275dace1f0ed82468482bbe48c948ff, type: 3}
---- !u!1 &1018958070 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2572481810034216229, guid: 3275dace1f0ed82468482bbe48c948ff, type: 3}
-  m_PrefabInstance: {fileID: 1018958069}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1037209612
 GameObject:
   m_ObjectHideFlags: 0
@@ -17908,7 +18025,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1037209613}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17930,6 +18047,37 @@ Transform:
   m_Father: {fileID: 480027330}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1138343848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1138343849}
+  m_Layer: 9
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1138343849
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138343848}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -19.98, y: 22.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 606365430}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1180211731
 GameObject:
   m_ObjectHideFlags: 0
@@ -17939,7 +18087,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1180211732}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17970,7 +18118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1201005466}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18051,9 +18199,21 @@ PrefabInstance:
       propertyPath: droppableItems.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: ee745c785a9a2cf45a0eec9f50631b6c, type: 2}
+    - target: {fileID: 7533917666047424924, guid: 0975682a10711714386c318dc91d7fda, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533917666047424924, guid: 0975682a10711714386c318dc91d7fda, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7533917666047424925, guid: 0975682a10711714386c318dc91d7fda, type: 3}
       propertyPath: m_Name
       value: Crate (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533917666047424925, guid: 0975682a10711714386c318dc91d7fda, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0975682a10711714386c318dc91d7fda, type: 3}
@@ -18124,6 +18284,10 @@ PrefabInstance:
     - target: {fileID: 7533917666047424925, guid: 0975682a10711714386c318dc91d7fda, type: 3}
       propertyPath: m_Name
       value: Crate (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533917666047424925, guid: 0975682a10711714386c318dc91d7fda, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0975682a10711714386c318dc91d7fda, type: 3}
@@ -18529,6 +18693,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7533917666047424925, guid: 0975682a10711714386c318dc91d7fda, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0975682a10711714386c318dc91d7fda, type: 3}
 --- !u!4 &1357149684 stripped
@@ -18543,6 +18711,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2031823267}
     m_Modifications:
+    - target: {fileID: 2034345316, guid: e42e6f5f5b62f594da52babc3e44a4b6, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6043322587593361984, guid: e42e6f5f5b62f594da52babc3e44a4b6, type: 3}
       propertyPath: m_Name
       value: BlackCloak
@@ -18615,7 +18787,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1415046862}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18714,7 +18886,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1477389853}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18806,7 +18978,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1700273655}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18883,6 +19055,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TwoFaces
       objectReference: {fileID: 0}
+    - target: {fileID: 465651692011290782, guid: 5f7e0001d09de2f4a91f29365f222d93, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 465651692011290783, guid: 5f7e0001d09de2f4a91f29365f222d93, type: 3}
       propertyPath: patrolPath.Array.size
       value: 1
@@ -18891,6 +19067,10 @@ PrefabInstance:
       propertyPath: patrolPath.Array.data[0]
       value: 
       objectReference: {fileID: 1477389853}
+    - target: {fileID: 465651692334859995, guid: 5f7e0001d09de2f4a91f29365f222d93, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f7e0001d09de2f4a91f29365f222d93, type: 3}
 --- !u!4 &1760982088 stripped
@@ -18907,7 +19087,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1806599111}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18921,13 +19101,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806599110}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -19.98, y: 25.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 447258075}
-  m_RootOrder: 1
+  m_Father: {fileID: 606365430}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1819068943
 PrefabInstance:
@@ -18980,10 +19160,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5795131940223461685, guid: 0bb0589669dcfa042aa25517a29709b9, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 11400000, guid: f32d80916cfb2d6479347ff529685f9a, type: 2}
     - target: {fileID: 5795131940223461689, guid: 0bb0589669dcfa042aa25517a29709b9, type: 3}
       propertyPath: m_Name
       value: RedBat (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5795131940223461689, guid: 0bb0589669dcfa042aa25517a29709b9, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795131940223461690, guid: 0bb0589669dcfa042aa25517a29709b9, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 369558412175886926, guid: 17517df00ed21a5448cd6656e67f3346, type: 3}
     - target: {fileID: 5795131940223461690, guid: 0bb0589669dcfa042aa25517a29709b9, type: 3}
       propertyPath: patrolPath.Array.size
       value: 1
@@ -18992,6 +19184,10 @@ PrefabInstance:
       propertyPath: patrolPath.Array.data[0]
       value: 
       objectReference: {fileID: 1415046862}
+    - target: {fileID: 5795131941287087036, guid: 0bb0589669dcfa042aa25517a29709b9, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bb0589669dcfa042aa25517a29709b9, type: 3}
 --- !u!4 &1819068944 stripped
@@ -19140,7 +19336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1877909473}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32594,7 +32790,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1963543958}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32625,7 +32821,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2010056813}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32757,6 +32953,10 @@ PrefabInstance:
     - target: {fileID: 7533917666047424925, guid: 0975682a10711714386c318dc91d7fda, type: 3}
       propertyPath: m_Name
       value: Crate (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533917666047424925, guid: 0975682a10711714386c318dc91d7fda, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0975682a10711714386c318dc91d7fda, type: 3}
@@ -32897,6 +33097,10 @@ PrefabInstance:
     - target: {fileID: 7533917666047424925, guid: 0975682a10711714386c318dc91d7fda, type: 3}
       propertyPath: m_Name
       value: Crate (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533917666047424925, guid: 0975682a10711714386c318dc91d7fda, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0975682a10711714386c318dc91d7fda, type: 3}

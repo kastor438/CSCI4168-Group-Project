@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1717910544696427684}
   m_Layer: 0
   m_Name: Graphics
-  m_TagString: Untagged
+  m_TagString: EnemyBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,5 +262,4 @@ MonoBehaviour:
   chaseRange: 0
   attackRange: 0
   nextWaypointDistance: 1
-  timeShootingCooldown: 1
   projectile: {fileID: 2175221696689806407, guid: 6ea47ae54940605449b5d7fef4c100dd, type: 3}

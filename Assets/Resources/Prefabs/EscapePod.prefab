@@ -473,7 +473,7 @@ MonoBehaviour:
   interactableRadius: 1.7
   offset: {x: 0, y: -1.57, z: 0}
   playerWaitTransform: {fileID: 1867549360}
-  graphics: {fileID: 0}
+  graphics: {fileID: 2572481810034216229}
   interactableCanvas: {fileID: 1171932965}
 --- !u!95 &6980116518000509768
 Animator:

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 102639433}
   - component: {fileID: 102639435}
   - component: {fileID: 102639434}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 108058050}
   - component: {fileID: 108058052}
   - component: {fileID: 108058051}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 499792431}
   - component: {fileID: 499792433}
   - component: {fileID: 499792432}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 1540613855}
   - component: {fileID: 1540613854}
   - component: {fileID: 1540613853}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: InteractCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,8 @@ GameObject:
   - component: {fileID: 6049936105860480202}
   - component: {fileID: 882130471779015892}
   - component: {fileID: 1928257259455527196}
-  m_Layer: 0
+  - component: {fileID: 1305911881}
+  m_Layer: 9
   m_Name: GunnerGary
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -510,6 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableRadius: 1.66
+  offset: {x: 0, y: 0, z: 0}
   npc: {fileID: 11400000, guid: 1162e5266d7c25d41806ea334ed0b192, type: 2}
   interactCanvasPopup: {fileID: 1540613851}
   canInteract: 0
@@ -617,3 +619,21 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
+--- !u!114 &1305911881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7004873527044471509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76aaf867f6f115a4d8b91ae522cde6b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesToDefeat:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  dialogDistance: 16

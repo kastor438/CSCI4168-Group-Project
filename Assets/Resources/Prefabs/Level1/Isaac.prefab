@@ -17,7 +17,8 @@ GameObject:
   - component: {fileID: 2032857823}
   - component: {fileID: 2032857824}
   - component: {fileID: 2032857825}
-  m_Layer: 0
+  - component: {fileID: 1240288481927366596}
+  m_Layer: 9
   m_Name: Isaac
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,8 +122,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableRadius: 1.66
+  offset: {x: 0, y: 0, z: 0}
   npc: {fileID: 11400000, guid: d2ee8b1526279f046919f1d7b1fc8992, type: 2}
   interactCanvasPopup: {fileID: 3377779128521221230}
+  canInteract: 1
 --- !u!95 &6493849127116836224
 Animator:
   serializedVersion: 4
@@ -185,7 +188,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 4
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -194,7 +197,7 @@ MonoBehaviour:
   repathRateCompatibility: NaN
   canSearchCompability: 0
   orientation: 1
-  enableRotation: 1
+  enableRotation: 0
   autoRepath:
     mode: 2
     interval: 0.5
@@ -204,9 +207,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
+  slowdownDistance: 2.2
   pickNextWaypointDist: 2
-  endReachedDistance: 0.2
+  endReachedDistance: 1.5
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -239,6 +242,20 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &1240288481927366596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113609769139668645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418562dc53c54594daaf1c576ceca543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mariaDrop: {fileID: 1234543741731144251, guid: 62cc36064e45aee459a2539c7fb0ba7c, type: 3}
+  arnoldDrop: {fileID: 1234543741731144251, guid: 481e310e4d167ae498336d3e16157cd4, type: 3}
 --- !u!1 &1887001985777404437
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +267,7 @@ GameObject:
   - component: {fileID: 6587555079684686212}
   - component: {fileID: 3290453575439968986}
   - component: {fileID: 7107455761332576869}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +345,7 @@ GameObject:
   - component: {fileID: 432714010563975557}
   - component: {fileID: 8569846150244928414}
   - component: {fileID: 2860776601019962276}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +481,7 @@ GameObject:
   - component: {fileID: 1776316751230441741}
   - component: {fileID: 4818396997066437490}
   - component: {fileID: 2293965073901380317}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: InteractCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +581,7 @@ GameObject:
   - component: {fileID: 3788104069336409254}
   - component: {fileID: 7713709538263469812}
   - component: {fileID: 7075640247687293290}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
