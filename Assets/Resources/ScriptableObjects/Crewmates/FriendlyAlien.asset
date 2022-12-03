@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2ab0c1d8b3849443a23c84312c4a555, type: 3}
+  m_Name: FriendlyAlien
+  m_EditorClassIdentifier: 
+  npcName: Isaac
+  hasDialog: 1
+  npcDialog:
+  - AHHHHHH!!!!!!!!!!\nOh, you're human... Apologies for being so startled, thought
+    you we're one of those infesting creatures.
+  - YOU HAVEN'T SEEN THEM?! Oh you just awoke?\nWell would you kindly escort me to
+    an escape hatch, I really don't wanna die alone on this ship.
+  - Hmmm, let's get you a weapon shall we?
+  maxHealth: 44
+  characterSpeed: 5
