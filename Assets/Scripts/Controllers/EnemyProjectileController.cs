@@ -39,9 +39,7 @@ public class EnemyProjectileController : MonoBehaviour
         }
         if (collision.CompareTag("Player") || collision.CompareTag("PlayerBody"))
         {
-            Debug.Log("Damage player");
             collision.GetComponentInParent<PlayerStats>().TakeDamage(projectileDamage);
-            Debug.Log("Destroy");
             Destroy(gameObject);
 
         }
