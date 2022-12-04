@@ -10,9 +10,10 @@ public class MainMenuCanvas : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void OpenSettingsOnClick()
+    public void OpenControlsOnClick()
     {
-
+        MenuManager.Instance.menuUserInterface.characterSelectionCanvas.gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public void OnExitGame()

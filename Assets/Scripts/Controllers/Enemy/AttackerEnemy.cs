@@ -116,7 +116,7 @@ public class AttackerEnemy : EnemyController
 
     }
 
-    void Chase() 
+    void Chase() //Adapted from [2] and [3] to use A* to make enemies chase the player
     {
         if (path == null) 
         {
@@ -152,13 +152,5 @@ public class AttackerEnemy : EnemyController
 
     public virtual void Attack() {
         //Debug.Log("Attack");
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, chaseRange);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
